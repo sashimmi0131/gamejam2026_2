@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class StoryManager : MonoBehaviour
+public class StoryManager2 : MonoBehaviour
 {
     [SerializeField] private StoryData[] storyDatas;
     [SerializeField] private Image background;
