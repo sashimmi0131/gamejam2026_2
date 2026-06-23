@@ -10,7 +10,12 @@ public class StoryManager2 : MonoBehaviour
     [SerializeField] private Image characterImage;
     [SerializeField] private TextMeshProUGUI storyText;
     [SerializeField] private TextMeshProUGUI characterName;
+
+    [Header("Typewriter")]
     [SerializeField] private float typewriterSpeed = 0.05f;
+    [SerializeField] private AudioSource typewriterAudioSource;
+    [SerializeField] private AudioClip typewriterSound;
+    [SerializeField] private int soundInterval = 1;
 
     private Coroutine typewriterCoroutine;
     private string currentStoryText = "";
@@ -98,7 +103,7 @@ public class StoryManager2 : MonoBehaviour
             StopCoroutine(typewriterCoroutine);
         }
 
-        currentStoryText = text;
+        currentStoryText = text ?? "";
         typewriterCoroutine = StartCoroutine(TypewriterText());
     }
 
@@ -107,9 +112,13 @@ public class StoryManager2 : MonoBehaviour
         isTyping = true;
         storyText.text = "";
 
+        int visibleCharacterCount = 0;
+
         foreach (char character in currentStoryText)
         {
             storyText.text += character;
+            visibleCharacterCount++;
+            PlayTypewriterSound(visibleCharacterCount, character);
             yield return new WaitForSeconds(typewriterSpeed);
         }
 
@@ -127,5 +136,25 @@ public class StoryManager2 : MonoBehaviour
 
         storyText.text = currentStoryText;
         isTyping = false;
+    }
+
+    private void PlayTypewriterSound(int visibleCharacterCount, char character)
+    {
+        if (typewriterAudioSource == null || typewriterSound == null)
+        {
+            return;
+        }
+
+        if (char.IsWhiteSpace(character))
+        {
+            return;
+        }
+
+        int interval = Mathf.Max(1, soundInterval);
+
+        if (visibleCharacterCount % interval == 0)
+        {
+            typewriterAudioSource.PlayOneShot(typewriterSound);
+        }
     }
 }
