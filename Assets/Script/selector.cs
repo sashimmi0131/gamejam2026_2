@@ -1,4 +1,5 @@
 using System.Runtime.CompilerServices;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,6 +26,9 @@ public class selector : MonoBehaviour
         {
             select = 1;
             sr.sprite = imageB; // 画像をBに切り替え
+      
+
+ 
         }
 
         // マウスが離れた瞬間に呼ばれる
