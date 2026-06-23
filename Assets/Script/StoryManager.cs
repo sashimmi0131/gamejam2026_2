@@ -15,6 +15,7 @@ public class StoryManager : MonoBehaviour
     [SerializeField] private GameObject choicePanel; // ボタン2つをまとめたパネル
     [SerializeField] private Button btn1;
     [SerializeField] private Button btn2;
+  
 
     private void SetStoryElement(int _storyIndex, int _textIndex)
     {
@@ -44,19 +45,29 @@ public class StoryManager : MonoBehaviour
         if (storyElement.isChoice)
         {
             choicePanel.SetActive(true);
-            btn1.GetComponentInChildren<TextMeshProUGUI>().text = storyElement.choiceText1;
-            btn2.GetComponentInChildren<TextMeshProUGUI>().text = storyElement.choiceText2;
 
-            // ボタンを押した時の処理
+            // --- ボタン1の処理（常に表示） ---
+            btn1.gameObject.SetActive(true);
+            btn1.GetComponentInChildren<TextMeshProUGUI>().text = storyElement.choiceText1;
             btn1.onClick.RemoveAllListeners();
             btn1.onClick.AddListener(() => ChangeStory(storyElement.targetIndex1));
 
-            btn2.onClick.RemoveAllListeners();
-            btn2.onClick.AddListener(() => ChangeStory(storyElement.targetIndex2));
+            // --- ボタン2の処理（文字が入っている時だけ表示） ---
+            if (string.IsNullOrEmpty(storyElement.choiceText2))
+            {
+                btn2.gameObject.SetActive(false); // 空なら消す
+            }
+            else
+            {
+                btn2.gameObject.SetActive(true); // 文字があるなら出す
+                btn2.GetComponentInChildren<TextMeshProUGUI>().text = storyElement.choiceText2;
+                btn2.onClick.RemoveAllListeners();
+                btn2.onClick.AddListener(() => ChangeStory(storyElement.targetIndex2));
+            }
         }
         else
         {
-            choicePanel.SetActive(false);
+            choicePanel.SetActive(false); // 選択肢がない画面ならパネルごと消す
         }
         // ...（画像やテキストの反映処理はそのまま）
     }
@@ -101,22 +112,23 @@ public class StoryManager : MonoBehaviour
 
     private void ProgressionStory(int _storyIndex)
     {
-        //ストーリーインデックスよりも大きいテキストは存在しないのでチェックして対応
-        //最後まで行ったなら、次のお話などに進めたいですよね
+        textIndex++;
+
+        // 今の章の続きがあるか？
         if (textIndex < storyDatas[_storyIndex].stories.Count)
         {
-            //まだ大きくないなら次のインデックスを表示
             SetStoryElement(_storyIndex, textIndex);
         }
         else
         {
-            //シーンチェンジや選択肢の表示。スクリプタブルオブジェクトを呼んだり。
+            // ここがポイント！今のデータの「次へ行く先」をインスペクターで持たせることもできます
+            // もしくは単純に章を＋１する今のロジックでもOKです
             textIndex = 0;
-            storyIndex++;//次のシーンへ
+            storyIndex++;
             SetStoryElement(storyIndex, textIndex);
         }
     }
 
     //呼び出しメソッド
-   
+
 }

@@ -26,8 +26,8 @@ MonoBehaviour:
     CharacterImage: {fileID: -4818643248354753769, guid: cd6f5392b0e9131418d30f75db003c82, type: 3}
     StoryText: "\u7F8E\u6708\u306E\u8868\u60C5\u304C\u5C11\u3057\u66C7\u308B\u3002"
     CharacterName: "\u4E3B\u4EBA\u516C"
-    isChoice: 0
-    choiceText1: 
-    targetIndex1: 0
+    isChoice: 1
+    choiceText1: "2\u7AE0"
+    targetIndex1: 4
     choiceText2: 
     targetIndex2: 0
