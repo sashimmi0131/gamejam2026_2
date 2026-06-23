@@ -1,16 +1,20 @@
 using UnityEngine;
+using UnityEngine.UI;
 
-public class sinnaidoBar : MonoBehaviour
+public class sinnaidoBarScript : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
+    public Image barImage;
 
-    // Update is called once per frame
-    void Update()
+    public Sprite[] barSprites;
+
+    public int sinnaido = 0;
+
+    public void ChangeSinnaido(int value)
     {
-        
+        sinnaido += value;
+
+        sinnaido = Mathf.Clamp(sinnaido, 0, barSprites.Length - 1);
+
+        barImage.sprite = barSprites[sinnaido];
     }
 }
