@@ -15,6 +15,11 @@ public class StoryManager2 : MonoBehaviour
     [SerializeField] private GameObject choicePanel;
     [SerializeField] private Button btn1;
     [SerializeField] private Button btn2;
+    [SerializeField] private AudioSource choiceAudioSource;
+    [SerializeField] private AudioClip choiceSound;
+
+    [Header("Backlog")]
+    [SerializeField] private BacklogManager backlogManager;
 
     [Header("Typewriter")]
     [SerializeField] private float typewriterSpeed = 0.05f;
@@ -26,25 +31,43 @@ public class StoryManager2 : MonoBehaviour
     private Story currentStoryElement;
     private string currentStoryText = "";
     private bool isTyping;
+    private int loggedStoryIndex = -1;
+    private int loggedTextIndex = -1;
 
     public int storyIndex { get; private set; }
     public int textIndex { get; private set; }
 
     private void Start()
     {
+        ApplyBacklogFont();
         SetStoryElement(storyIndex, textIndex);
     }
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetMouseButtonDown(0))
+        if (ShouldReadNext())
         {
             ReadNext();
         }
     }
 
+    private bool ShouldReadNext()
+    {
+        if (Input.GetKeyDown(KeyCode.Return))
+        {
+            return true;
+        }
+
+        return Input.GetMouseButtonDown(0);
+    }
+
     private void ReadNext()
     {
+        if (backlogManager != null && backlogManager.IsOpen)
+        {
+            return;
+        }
+
         if (isTyping)
         {
             CompleteTypewriterText();
@@ -56,6 +79,7 @@ public class StoryManager2 : MonoBehaviour
             return;
         }
 
+        AddCurrentStoryToBacklog();
         textIndex++;
         ProgressionStory();
     }
@@ -95,6 +119,14 @@ public class StoryManager2 : MonoBehaviour
         textIndex = 0;
         HideChoicePanel();
         SetStoryElement(storyIndex, textIndex);
+    }
+
+    private void SelectChoice(int nextStoryIndex, string choiceText)
+    {
+        AddCurrentStoryToBacklog();
+        AddChoiceToBacklog(choiceText);
+        PlayChoiceSound();
+        ChangeStory(nextStoryIndex);
     }
 
     private void ProgressionStory()
@@ -208,7 +240,7 @@ public class StoryManager2 : MonoBehaviour
         btn1.gameObject.SetActive(true);
         btn1.GetComponentInChildren<TextMeshProUGUI>().text = currentStoryElement.choiceText1;
         btn1.onClick.RemoveAllListeners();
-        btn1.onClick.AddListener(() => ChangeStory(currentStoryElement.targetIndex1));
+        btn1.onClick.AddListener(() => SelectChoice(currentStoryElement.targetIndex1, currentStoryElement.choiceText1));
 
         if (string.IsNullOrEmpty(currentStoryElement.choiceText2))
         {
@@ -220,8 +252,51 @@ public class StoryManager2 : MonoBehaviour
             btn2.gameObject.SetActive(true);
             btn2.GetComponentInChildren<TextMeshProUGUI>().text = currentStoryElement.choiceText2;
             btn2.onClick.RemoveAllListeners();
-            btn2.onClick.AddListener(() => ChangeStory(currentStoryElement.targetIndex2));
+            btn2.onClick.AddListener(() => SelectChoice(currentStoryElement.targetIndex2, currentStoryElement.choiceText2));
         }
+    }
+
+    private void AddCurrentStoryToBacklog()
+    {
+        if (backlogManager == null || currentStoryElement == null)
+        {
+            return;
+        }
+
+        if (loggedStoryIndex == storyIndex && loggedTextIndex == textIndex)
+        {
+            return;
+        }
+
+        backlogManager.AddLog(currentStoryElement.CharacterName, currentStoryElement.StoryText);
+        loggedStoryIndex = storyIndex;
+        loggedTextIndex = textIndex;
+    }
+
+    private void AddChoiceToBacklog(string choiceText)
+    {
+        if (backlogManager != null)
+        {
+            backlogManager.AddChoiceLog(choiceText);
+        }
+    }
+
+    private void ApplyBacklogFont()
+    {
+        if (backlogManager != null && storyText != null)
+        {
+            backlogManager.SetLogFont(storyText.font);
+        }
+    }
+
+    private void PlayChoiceSound()
+    {
+        if (choiceAudioSource == null || choiceSound == null)
+        {
+            return;
+        }
+
+        choiceAudioSource.PlayOneShot(choiceSound);
     }
 
     private void HideChoicePanel()
