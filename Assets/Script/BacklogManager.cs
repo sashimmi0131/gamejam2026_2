@@ -1,6 +1,8 @@
 using System.Collections.Generic;
+using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BacklogManager : MonoBehaviour
 {
@@ -20,6 +22,8 @@ public class BacklogManager : MonoBehaviour
     [Header("UI")]
     [SerializeField] private GameObject backlogPanel;
     [SerializeField] private TextMeshProUGUI combinedLogText;
+    [SerializeField] private ScrollRect backlogScrollRect;
+    [SerializeField] private RectTransform logContent;
 
     [Header("Input")]
     [SerializeField] private KeyCode toggleKey = KeyCode.B;
@@ -33,6 +37,8 @@ public class BacklogManager : MonoBehaviour
     private readonly List<BacklogEntry> logs = new List<BacklogEntry>();
     private TMP_FontAsset logFont;
 
+    public event Action BeforeBacklogOpen;
+
     public bool IsOpen
     {
         get
@@ -43,6 +49,7 @@ public class BacklogManager : MonoBehaviour
 
     private void Awake()
     {
+        ConfigureScrollRect();
         ApplyTextSettings();
 
         if (backlogPanel != null)
@@ -96,12 +103,24 @@ public class BacklogManager : MonoBehaviour
             return;
         }
 
-        backlogPanel.SetActive(!backlogPanel.activeSelf);
+        bool willOpen = !backlogPanel.activeSelf;
+
+        if (willOpen)
+        {
+            BeforeBacklogOpen?.Invoke();
+        }
+
+        backlogPanel.SetActive(willOpen);
 
         if (backlogPanel.activeSelf)
         {
             RebuildLogText();
         }
+    }
+
+    public void OnBacklogButtonClicked()
+    {
+        ToggleBacklog();
     }
 
     public void OpenBacklog()
@@ -111,8 +130,14 @@ public class BacklogManager : MonoBehaviour
             return;
         }
 
+        BeforeBacklogOpen?.Invoke();
         backlogPanel.SetActive(true);
         RebuildLogText();
+    }
+
+    public void OnBacklogOpenButtonClicked()
+    {
+        OpenBacklog();
     }
 
     public void CloseBacklog()
@@ -121,6 +146,11 @@ public class BacklogManager : MonoBehaviour
         {
             backlogPanel.SetActive(false);
         }
+    }
+
+    public void OnBacklogCloseButtonClicked()
+    {
+        CloseBacklog();
     }
 
     public void ClearBacklog()
@@ -161,6 +191,7 @@ public class BacklogManager : MonoBehaviour
             return;
         }
 
+        ConfigureScrollRect();
         ApplyTextSettings();
         combinedLogText.text = "";
 
@@ -170,6 +201,9 @@ public class BacklogManager : MonoBehaviour
         {
             combinedLogText.text += FormatLogEntry(logs[i]) + "\n\n";
         }
+
+        ResizeLogContent();
+        ScrollToLatestLog();
     }
 
     private void ApplyTextSettings()
@@ -180,12 +214,118 @@ public class BacklogManager : MonoBehaviour
         }
 
         combinedLogText.enableWordWrapping = true;
-        combinedLogText.overflowMode = TextOverflowModes.Truncate;
+        combinedLogText.overflowMode = TextOverflowModes.Overflow;
 
         if (logFont != null)
         {
             combinedLogText.font = logFont;
         }
+    }
+
+    private void ConfigureScrollRect()
+    {
+        if (backlogScrollRect == null && backlogPanel != null)
+        {
+            backlogScrollRect = backlogPanel.GetComponentInChildren<ScrollRect>(true);
+        }
+
+        if (backlogScrollRect == null)
+        {
+            return;
+        }
+
+        if (logContent == null)
+        {
+            logContent = backlogScrollRect.content;
+        }
+
+        backlogScrollRect.horizontal = false;
+        backlogScrollRect.vertical = true;
+        backlogScrollRect.movementType = ScrollRect.MovementType.Clamped;
+
+        if (backlogScrollRect.horizontalScrollbar != null)
+        {
+            backlogScrollRect.horizontalScrollbar.gameObject.SetActive(false);
+            backlogScrollRect.horizontalScrollbar = null;
+        }
+
+        if (backlogScrollRect.verticalScrollbar != null)
+        {
+            backlogScrollRect.verticalScrollbar.gameObject.SetActive(true);
+            backlogScrollRect.verticalScrollbarVisibility = ScrollRect.ScrollbarVisibility.Permanent;
+        }
+    }
+
+    private void ResizeLogContent()
+    {
+        if (combinedLogText == null)
+        {
+            return;
+        }
+
+        RectTransform textRect = combinedLogText.rectTransform;
+        float viewportWidth = GetViewportWidth();
+
+        if (viewportWidth > 0f)
+        {
+            if (logContent != null)
+            {
+                Vector2 fixedContentSize = logContent.sizeDelta;
+                fixedContentSize.x = viewportWidth;
+                logContent.sizeDelta = fixedContentSize;
+            }
+
+            Vector2 fixedWidthSize = textRect.sizeDelta;
+            fixedWidthSize.x = viewportWidth;
+            textRect.sizeDelta = fixedWidthSize;
+        }
+
+        combinedLogText.ForceMeshUpdate();
+
+        float viewportHeight = GetViewportHeight();
+        float preferredHeight = Mathf.Max(combinedLogText.preferredHeight, viewportHeight);
+        Vector2 textSize = textRect.sizeDelta;
+        textSize.y = preferredHeight;
+        textRect.sizeDelta = textSize;
+
+        if (logContent != null)
+        {
+            Vector2 contentSize = logContent.sizeDelta;
+            contentSize.x = viewportWidth > 0f ? viewportWidth : textRect.sizeDelta.x;
+            contentSize.y = preferredHeight;
+            logContent.sizeDelta = contentSize;
+        }
+    }
+
+    private float GetViewportWidth()
+    {
+        if (backlogScrollRect == null || backlogScrollRect.viewport == null)
+        {
+            return 0f;
+        }
+
+        return backlogScrollRect.viewport.rect.width;
+    }
+
+    private float GetViewportHeight()
+    {
+        if (backlogScrollRect == null || backlogScrollRect.viewport == null)
+        {
+            return 0f;
+        }
+
+        return backlogScrollRect.viewport.rect.height;
+    }
+
+    private void ScrollToLatestLog()
+    {
+        if (backlogScrollRect == null)
+        {
+            return;
+        }
+
+        Canvas.ForceUpdateCanvases();
+        backlogScrollRect.verticalNormalizedPosition = 0f;
     }
 
     private string FormatLogEntry(BacklogEntry log)
