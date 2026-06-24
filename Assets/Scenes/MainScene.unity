@@ -457,6 +457,9 @@ MonoBehaviour:
   maxLogCount: 50
   visibleLogCount: 5
   choicePrefix: '> '
+  useTextOutline: 1
+  textOutlineColor: {r: 0, g: 0, b: 0, a: 1}
+  textOutlineWidth: 0.2
 --- !u!4 &280580494
 Transform:
   m_ObjectHideFlags: 0
@@ -934,8 +937,11 @@ MonoBehaviour:
   choiceAudioSource: {fileID: 0}
   choiceSound: {fileID: 0}
   backlogManager: {fileID: 280580493}
+  settingsMenuManager: {fileID: 0}
   advanceConversationAudioSource: {fileID: 406536462}
   advanceConversationSound: {fileID: 8300000, guid: cde7cc30aa379e3429dce81f73b00c23, type: 3}
+  isAutoMode: 0
+  autoModeInterval: 2
   typewriterSpeed: 0.05
   typewriterAudioSource: {fileID: 406536462}
   typewriterSound: {fileID: 8300000, guid: c273e27dbaafde74c956114908414437, type: 3}
@@ -1145,10 +1151,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   barImage: {fileID: 572464025}
   barSprites:
-  - {fileID: 5052535643678638449, guid: 1fadeda1cb6b228408f735dff3370828, type: 3}
-  - {fileID: -2983356566689714503, guid: 907d4ed5c40ff2e49aad6c2e88402d11, type: 3}
-  - {fileID: -2335762460258410051, guid: fbd7198b383608043bb3e408e2b6b046, type: 3}
-  - {fileID: -120568443989853620, guid: 22070041309d4a84eb5e2d2f3338f625, type: 3}
+  - {fileID: -120568443989853620, guid: 06c1b4fc90da41d4c9b3a92595cfd57b, type: 3}
+  - {fileID: -2335762460258410051, guid: cb1f0eaf54a5c6849b8d512d4924ab40, type: 3}
+  - {fileID: -2983356566689714503, guid: 5e5aa589a058ba840a8c381bf96086ed, type: 3}
+  - {fileID: 5052535643678638449, guid: 25470497a11955d4fb5cfa4b33396259, type: 3}
   sinnaido: 0
 --- !u!114 &572464025
 MonoBehaviour:
