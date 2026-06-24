@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b0358b01a369703478f82c8a4ddb112d
+guid: 161f0e00f920bc140ac27009ed21e1e0
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9189474204515730777
-    second: chara_hiroin_smiie2_v001_0
+      213: -1055039539844087650
+    second: chara_sinnyuu_orenji_v006_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,12 +100,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: chara_hiroin_smiie2_v001_0
+      name: chara_sinnyuu_orenji_v006_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 150
         y: 0
-        width: 1000
+        width: 1660
         height: 1000
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7aa793f16ed687080800000000000000
-      internalID: -9189474204515730777
+      spriteID: e900a9bd02fbb51f0800000000000000
+      internalID: -1055039539844087650
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 8929846da5db21e4f80b6dd1a3b20d30
+    spriteID: f0d03d7714767594aa250ccada528e23
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      chara_hiroin_smiie2_v001_0: -9189474204515730777
+      chara_sinnyuu_orenji_v006_0: -1055039539844087650
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -217,6 +217,6 @@ MonoBehaviour:
     CharacterName: "\u76F8\u6CA2\u6052\u4E00"
     isChoice: 1
     choiceText1: "\u597D\u304D\u3060"
-    targetIndex1: 0
+    targetIndex1: 10
     choiceText2: "\u308F\u304B\u3089\u306A\u3044"
-    targetIndex2: 0
+    targetIndex2: 10

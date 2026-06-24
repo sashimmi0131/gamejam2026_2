@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: b0358b01a369703478f82c8a4ddb112d
+guid: d239a127ba8f97d4ea204bcec3022163
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -9189474204515730777
-    second: chara_hiroin_smiie2_v001_0
+      213: -238371089582851253
+    second: ge-musyuuryou_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: chara_hiroin_smiie2_v001_0
+      name: ge-musyuuryou_0
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1000
-        height: 1000
+        x: 1078
+        y: 636
+        width: 562
+        height: 114
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7aa793f16ed687080800000000000000
-      internalID: -9189474204515730777
+      spriteID: b4bf0b8c1c221bcf0800000000000000
+      internalID: -238371089582851253
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 8929846da5db21e4f80b6dd1a3b20d30
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      chara_hiroin_smiie2_v001_0: -9189474204515730777
+      ge-musyuuryou_0: -238371089582851253
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
