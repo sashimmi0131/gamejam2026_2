@@ -502,7 +502,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 597, y: -85}
+  m_AnchoredPosition: {x: 597, y: -54}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &519420028
@@ -680,6 +680,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 3b21a91de9dd268499d1b495769781e0, type: 2}
   - {fileID: 11400000, guid: 680f3ba3b1fde734caa2087b94ca5133, type: 2}
   - {fileID: 11400000, guid: 5df784ac81575ce49b2277d18a5f6873, type: 2}
+  - {fileID: 11400000, guid: 749fa7b90f15a0248a72c9425b96f3a0, type: 2}
   background: {fileID: 1503962511}
   characterImage: {fileID: 1058952235}
   storyText: {fileID: 1421102246}
@@ -815,7 +816,7 @@ Canvas:
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
   m_VertexColorAlwaysGammaSpace: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -840,6 +841,7 @@ RectTransform:
   - {fileID: 1421102244}
   - {fileID: 471948652}
   - {fileID: 192597147}
+  - {fileID: 572464023}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
