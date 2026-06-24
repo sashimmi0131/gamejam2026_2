@@ -27,11 +27,18 @@ public class StoryManager2 : MonoBehaviour
     [Header("Backlog")]
     [SerializeField] private BacklogManager backlogManager;
 
+    [Header("Settings")]
+    [SerializeField] private SettingsMenuManager settingsMenuManager;
+
     [Header("Advance Conversation Sound")]
     [FormerlySerializedAs("backgroundButtonAudioSource")]
     [SerializeField] private AudioSource advanceConversationAudioSource;
     [FormerlySerializedAs("backgroundButtonSound")]
     [SerializeField] private AudioClip advanceConversationSound;
+
+    [Header("Auto Mode")]
+    [SerializeField] private bool isAutoMode;
+    [SerializeField] private float autoModeInterval = 2f;
 
     [Header("Typewriter")]
     [SerializeField] private float typewriterSpeed = 0.05f;
@@ -46,9 +53,12 @@ public class StoryManager2 : MonoBehaviour
     private int loggedStoryIndex = -1;
     private int loggedTextIndex = -1;
     private bool shouldPlayAdvanceConversationSound;
+    private float autoModeTimer;
 
     public int storyIndex { get; private set; }
     public int textIndex { get; private set; }
+    public bool IsAutoMode => isAutoMode;
+    public float AutoModeInterval => autoModeInterval;
 
   
 
@@ -87,11 +97,18 @@ public class StoryManager2 : MonoBehaviour
         {
             ReadNext();
         }
+
+        UpdateAutoMode();
     }
 
     private bool ShouldReadNext()
     {
         shouldPlayAdvanceConversationSound = false;
+
+        if (IsSettingsOpen())
+        {
+            return false;
+        }
 
         if (Input.GetKeyDown(KeyCode.Return))
         {
@@ -148,6 +165,11 @@ public class StoryManager2 : MonoBehaviour
 
     private void ReadNext()
     {
+        if (IsSettingsOpen())
+        {
+            return;
+        }
+
         if (backlogManager != null && backlogManager.IsOpen)
         {
             return;
@@ -169,6 +191,73 @@ public class StoryManager2 : MonoBehaviour
         AddCurrentStoryToBacklog();
         textIndex++;
         ProgressionStory();
+    }
+
+    public void SetAutoMode(bool isOn)
+    {
+        isAutoMode = isOn;
+        autoModeTimer = 0f;
+    }
+
+    public void ToggleAutoMode()
+    {
+        SetAutoMode(!isAutoMode);
+    }
+
+    public void SetAutoModeInterval(float interval)
+    {
+        autoModeInterval = Mathf.Max(0.1f, interval);
+        autoModeTimer = 0f;
+    }
+
+    private void UpdateAutoMode()
+    {
+        if (!CanAutoReadNext())
+        {
+            autoModeTimer = 0f;
+            return;
+        }
+
+        autoModeTimer += Time.deltaTime;
+
+        if (autoModeTimer < Mathf.Max(0.1f, autoModeInterval))
+        {
+            return;
+        }
+
+        autoModeTimer = 0f;
+        shouldPlayAdvanceConversationSound = true;
+        ReadNext();
+    }
+
+    private bool CanAutoReadNext()
+    {
+        if (!isAutoMode || isTyping)
+        {
+            return false;
+        }
+
+        if (IsSettingsOpen())
+        {
+            return false;
+        }
+
+        if (backlogManager != null && backlogManager.IsOpen)
+        {
+            return false;
+        }
+
+        return currentStoryElement == null || !currentStoryElement.isChoice;
+    }
+
+    private bool IsSettingsOpen()
+    {
+        if (SettingsMenuManager.IsAnySettingsOpen)
+        {
+            return true;
+        }
+
+        return settingsMenuManager != null && settingsMenuManager.IsOpen;
     }
 
     private void SetStoryElement(int _storyIndex, int _textIndex)
