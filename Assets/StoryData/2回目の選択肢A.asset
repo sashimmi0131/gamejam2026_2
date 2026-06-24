@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "2\u56DE\u76EE\u306E\u9078\u629E\u80A2A"
   m_EditorClassIdentifier: 
   stories:
-  - Background: {fileID: 0}
+  - Background: {fileID: 1646605720068754351, guid: 628736a19c7ac4c4599d7bda9371f468, type: 3}
     CharacterImage: {fileID: -4818643248354753769, guid: cd6f5392b0e9131418d30f75db003c82, type: 3}
     StoryText: 
     CharacterName: 
@@ -35,8 +35,17 @@ MonoBehaviour:
     CharacterImage: {fileID: -4818643248354753769, guid: cd6f5392b0e9131418d30f75db003c82, type: 3}
     StoryText: "\u300C\u304A\u524D\u306A\u3041.....\u300D"
     CharacterName: "\u76F8\u6CA2\u6052\u4E00"
+    isChoice: 0
+    choiceText1: 
+    targetIndex1: 0
+    choiceText2: 
+    targetIndex2: 0
+  - Background: {fileID: 1646605720068754351, guid: 628736a19c7ac4c4599d7bda9371f468, type: 3}
+    CharacterImage: {fileID: -1404659835321373372, guid: 550f2097b2df98443a485e753ab2882b, type: 3}
+    StoryText: "\u76F8\u6CA2\u306B\u3042\u304D\u308C\u3089\u308C\u305F\u3002"
+    CharacterName: "\u4E3B\u4EBA\u516C"
     isChoice: 1
-    choiceText1: "3\u7AE0"
+    choiceText1: "\u7B2C3\u7AE0"
     targetIndex1: 7
     choiceText2: 
     targetIndex2: 0
