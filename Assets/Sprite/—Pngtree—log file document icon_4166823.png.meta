@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 7901e6c14fc7cab48971fe18c9740844
+guid: ff929778e6b3e5641a823faa84ea7ad9
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -244710243028621374
-    second: schoolyard_evening03_0
+      213: 5845691622978506088
+    second: "\u2014Pngtree\u2014log file document icon_4166823_0"
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +100,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: schoolyard_evening03_0
+      name: "\u2014Pngtree\u2014log file document icon_4166823_0"
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
-        width: 1344
-        height: 896
+        x: 182
+        y: 139
+        width: 737
+        height: 819
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 2c7216b945d9a9cf0800000000000000
-      internalID: -244710243028621374
+      spriteID: 86d4c1e2f81102150800000000000000
+      internalID: 5845691622978506088
       vertices: []
       indices: 
       edges: []
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      schoolyard_evening03_0: -244710243028621374
+      "\u2014Pngtree\u2014log file document icon_4166823_0": 5845691622978506088
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -15,7 +15,7 @@ MonoBehaviour:
   stories:
   - Background: {fileID: -1404659835321373372, guid: 550f2097b2df98443a485e753ab2882b, type: 3}
     CharacterImage: {fileID: -1404659835321373372, guid: 550f2097b2df98443a485e753ab2882b, type: 3}
-    StoryText: 
+    StoryText: "\u7B2C\u4E00\u7AE0"
     CharacterName: "\u4E3B\u4EBA\u516C"
     isChoice: 0
     choiceText1: 
