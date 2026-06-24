@@ -16,7 +16,6 @@ public class sinnaidoBarScript : MonoBehaviour
         UpdateBar();
     }
 
-    // 元のメソッド（内部処理用、または正の数用として残す）
     public void ChangeSinnaido(int value)
     {
         sinnaido += value;
@@ -24,7 +23,6 @@ public class sinnaidoBarScript : MonoBehaviour
         UpdateBar();
     }
 
-    // ★追加：ボタンのOn Clickから直接呼ぶ用のメソッド
     public void IncreaseSinnaido()
     {
         Debug.Log("プラスボタンが押されました！現在の親愛度: " + sinnaido);
