@@ -1560,6 +1560,7 @@ MonoBehaviour:
   characterName: {fileID: 1687167610}
   UI: {fileID: 244432738}
   UI2: {fileID: 572464025}
+  Canvas1: {fileID: 2080047851}
   choicePanel: {fileID: 471948651}
   btn1: {fileID: 939492902}
   btn2: {fileID: 1773438005}
@@ -5023,7 +5024,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &2080047852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5691,7 +5692,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 198999705567538108, guid: 9dca676f2ff988a45a505d56f3bd0bb6, type: 3}
       propertyPath: autoRandomSeed
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 198999705567538108, guid: 9dca676f2ff988a45a505d56f3bd0bb6, type: 3}
       propertyPath: moveWithTransform
@@ -5724,6 +5725,10 @@ PrefabInstance:
     - target: {fileID: 198999705567538108, guid: 9dca676f2ff988a45a505d56f3bd0bb6, type: 3}
       propertyPath: InitialModule.startSize.scalar
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 198999705567538108, guid: 9dca676f2ff988a45a505d56f3bd0bb6, type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 198999705567538108, guid: 9dca676f2ff988a45a505d56f3bd0bb6, type: 3}
       propertyPath: ShapeModule.randomDirectionAmount
