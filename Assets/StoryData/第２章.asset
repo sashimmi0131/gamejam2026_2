@@ -150,7 +150,7 @@ MonoBehaviour:
     targetIndex2: 0
   - Background: {fileID: 1646605720068754351, guid: 628736a19c7ac4c4599d7bda9371f468, type: 3}
     CharacterImage: {fileID: -1404659835321373372, guid: 550f2097b2df98443a485e753ab2882b, type: 3}
-    StoryText: "\u76F8\u6CA2\u306F\u30CB\u30E4\u30CB\u30E4\u3057\u306A\u304C\u3089\u4E3B\u4EBA\u516C\u306E\u80A9\u3092\u305F\u305F\u304F\u3002"
+    StoryText: "\u76F8\u6CA2\u306F\u30CB\u30E4\u30CB\u30E4\u3057\u306A\u304C\u80A9\u3092\u305F\u305F\u3044\u3066\u304F\u308B\u3002"
     CharacterName: "\u4E3B\u4EBA\u516C"
     isChoice: 0
     choiceText1: 
