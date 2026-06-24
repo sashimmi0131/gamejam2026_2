@@ -11,7 +11,6 @@ public class BranchingEndingScript : MonoBehaviour
     public int friendEndingIndex = 7; // 好感度2
     public int badEndingIndex = 8;    // 好感度1以下
 
-    // ★ストーリーの最後（告白タイミング）でこのメソッドを呼び出す
     public void GoToEndingStory()
     {
         int currentSinnaido = sinnaidoScript.sinnaido;
