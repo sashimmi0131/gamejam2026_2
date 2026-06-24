@@ -23,7 +23,7 @@ MonoBehaviour:
     choiceText2: 
     targetIndex2: 0
   - Background: {fileID: 1646605720068754351, guid: 628736a19c7ac4c4599d7bda9371f468, type: 3}
-    CharacterImage: {fileID: -4818643248354753769, guid: cd6f5392b0e9131418d30f75db003c82, type: 3}
+    CharacterImage: {fileID: -1404659835321373372, guid: 550f2097b2df98443a485e753ab2882b, type: 3}
     StoryText: "\u7FCC\u65E5\u3002"
     CharacterName: "\u4E3B\u4EBA\u516C"
     isChoice: 0
