@@ -58,7 +58,7 @@ public class StoryManager2 : MonoBehaviour
     private int loggedTextIndex = -1;
     private bool shouldPlayAdvanceConversationSound;
     private float autoModeTimer;
-
+   
     public int storyIndex { get; private set; }
     public int textIndex { get; private set; }
     public bool IsAutoMode => isAutoMode;
@@ -92,17 +92,19 @@ public class StoryManager2 : MonoBehaviour
         {
            Canvas1.SetActive(true);
         }
+       
 
         if (background.sprite != null && background.sprite.name == "loading2_0"
             || background.sprite.name == "end2_0"
             || background.sprite.name == "end3_0"
             || background.sprite.name == "ending_suchiru_sakuranasi_v001_0"
-            && textIndex == 8)   //指定の背景の時にUIを非表示にします
+            && textIndex > 7)   //指定の背景の時にUIを非表示にします
         {
             UI.gameObject.SetActive(false);
             UI2.gameObject.SetActive(false);
             UI3.gameObject.SetActive(false);
             UI4.gameObject.SetActive(false);
+           
         }
         else 
         {
