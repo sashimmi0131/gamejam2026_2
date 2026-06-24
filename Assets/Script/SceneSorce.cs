@@ -44,8 +44,8 @@ public class SceneSource : SceneBase
             }
             sceneButton.button.onClick.AddListener(() =>
             {
-                Debug.Log(barScript.Sinnaido);
-                Debug.Log("error");
+            
+               
                 if (sinnaidoBarScript.sinnaido >= 3)
                 {
                     SceneChange(SceneID.HappyEND);

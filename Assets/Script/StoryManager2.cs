@@ -208,11 +208,15 @@ public class StoryManager2 : MonoBehaviour
         {
             return;
         }
+        int maxTextIndex = storyDatas[storyIndex].stories.Count;
 
-        PlayAdvanceConversationSoundIfNeeded();
-        AddCurrentStoryToBacklog();
-        textIndex++;
-        ProgressionStory();
+        if (textIndex < maxTextIndex - 1)
+        {
+            PlayAdvanceConversationSoundIfNeeded();
+            AddCurrentStoryToBacklog();
+            textIndex++;
+            ProgressionStory();
+        }
     }
 
     public void SetAutoMode(bool isOn)
