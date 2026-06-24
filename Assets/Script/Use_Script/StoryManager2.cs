@@ -184,8 +184,7 @@ public class StoryManager2 : MonoBehaviour
 
         return false;
     }
-
-    private void ReadNext()
+     private void ReadNext()
     {
         if (IsSettingsOpen())
         {
@@ -218,6 +217,7 @@ public class StoryManager2 : MonoBehaviour
             ProgressionStory();
         }
     }
+   
 
     public void SetAutoMode(bool isOn)
     {
