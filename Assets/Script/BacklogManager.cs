@@ -29,6 +29,10 @@ public class BacklogManager : MonoBehaviour
     [SerializeField] private KeyCode toggleKey = KeyCode.B;
     [SerializeField] private bool enableKeyboardToggle = true;
 
+    [Header("Sound")]
+    [SerializeField] private AudioSource backlogAudioSource;
+    [SerializeField] private AudioClip backlogButtonSound;
+
     [Header("Log")]
     [SerializeField] private int maxLogCount = 50;
     [SerializeField] private int visibleLogCount = 5;
@@ -116,6 +120,8 @@ public class BacklogManager : MonoBehaviour
         {
             RebuildLogText();
         }
+
+        PlayBacklogButtonSound();
     }
 
     public void OnBacklogButtonClicked()
@@ -133,6 +139,7 @@ public class BacklogManager : MonoBehaviour
         BeforeBacklogOpen?.Invoke();
         backlogPanel.SetActive(true);
         RebuildLogText();
+        PlayBacklogButtonSound();
     }
 
     public void OnBacklogOpenButtonClicked()
@@ -145,6 +152,7 @@ public class BacklogManager : MonoBehaviour
         if (backlogPanel != null)
         {
             backlogPanel.SetActive(false);
+            PlayBacklogButtonSound();
         }
     }
 
@@ -326,6 +334,16 @@ public class BacklogManager : MonoBehaviour
 
         Canvas.ForceUpdateCanvases();
         backlogScrollRect.verticalNormalizedPosition = 0f;
+    }
+
+    private void PlayBacklogButtonSound()
+    {
+        if (backlogAudioSource == null || backlogButtonSound == null)
+        {
+            return;
+        }
+
+        backlogAudioSource.PlayOneShot(backlogButtonSound);
     }
 
     private string FormatLogEntry(BacklogEntry log)

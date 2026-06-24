@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class StoryManager2 : MonoBehaviour
@@ -26,6 +27,12 @@ public class StoryManager2 : MonoBehaviour
     [Header("Backlog")]
     [SerializeField] private BacklogManager backlogManager;
 
+    [Header("Advance Conversation Sound")]
+    [FormerlySerializedAs("backgroundButtonAudioSource")]
+    [SerializeField] private AudioSource advanceConversationAudioSource;
+    [FormerlySerializedAs("backgroundButtonSound")]
+    [SerializeField] private AudioClip advanceConversationSound;
+
     [Header("Typewriter")]
     [SerializeField] private float typewriterSpeed = 0.05f;
     [SerializeField] private AudioSource typewriterAudioSource;
@@ -38,6 +45,7 @@ public class StoryManager2 : MonoBehaviour
     private bool isTyping;
     private int loggedStoryIndex = -1;
     private int loggedTextIndex = -1;
+    private bool shouldPlayAdvanceConversationSound;
 
     public int storyIndex { get; private set; }
     public int textIndex { get; private set; }
@@ -83,8 +91,11 @@ public class StoryManager2 : MonoBehaviour
 
     private bool ShouldReadNext()
     {
+        shouldPlayAdvanceConversationSound = false;
+
         if (Input.GetKeyDown(KeyCode.Return))
         {
+            shouldPlayAdvanceConversationSound = true;
             return true;
         }
 
@@ -98,6 +109,7 @@ public class StoryManager2 : MonoBehaviour
             return false;
         }
 
+        shouldPlayAdvanceConversationSound = true;
         return true;
     }
 
@@ -143,6 +155,7 @@ public class StoryManager2 : MonoBehaviour
 
         if (isTyping)
         {
+            PlayAdvanceConversationSoundIfNeeded();
             CompleteTypewriterText();
             return;
         }
@@ -152,6 +165,7 @@ public class StoryManager2 : MonoBehaviour
             return;
         }
 
+        PlayAdvanceConversationSoundIfNeeded();
         AddCurrentStoryToBacklog();
         textIndex++;
         ProgressionStory();
@@ -370,6 +384,23 @@ public class StoryManager2 : MonoBehaviour
         }
 
         choiceAudioSource.PlayOneShot(choiceSound);
+    }
+
+    private void PlayAdvanceConversationSoundIfNeeded()
+    {
+        if (!shouldPlayAdvanceConversationSound)
+        {
+            return;
+        }
+
+        shouldPlayAdvanceConversationSound = false;
+
+        if (advanceConversationAudioSource == null || advanceConversationSound == null)
+        {
+            return;
+        }
+
+        advanceConversationAudioSource.PlayOneShot(advanceConversationSound);
     }
 
     private void HideChoicePanel()
