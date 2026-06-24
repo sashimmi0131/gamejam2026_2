@@ -12,6 +12,9 @@ public class StoryManager2 : MonoBehaviour
     [SerializeField] private Image characterImage;
     [SerializeField] private TextMeshProUGUI storyText;
     [SerializeField] private TextMeshProUGUI characterName;
+    [SerializeField] private Image UI;
+    [SerializeField] private Image UI2;
+
 
     [Header("Choice")]
     [SerializeField] private GameObject choicePanel;
@@ -39,6 +42,8 @@ public class StoryManager2 : MonoBehaviour
     public int storyIndex { get; private set; }
     public int textIndex { get; private set; }
 
+  
+
     private void Start()
     {
         ApplyBacklogFont();
@@ -61,6 +66,15 @@ public class StoryManager2 : MonoBehaviour
 
     private void Update()
     {
+        if (textIndex == 0)//UIをテキスト番号０の時は非表示1以上は表示にしました。
+        {
+            UI.gameObject.SetActive(false);
+        }
+        else 
+        {
+            UI.gameObject.SetActive(true);
+        }
+        
         if (ShouldReadNext())
         {
             ReadNext();

@@ -11,6 +11,10 @@ public class StoryManager : MonoBehaviour
     [SerializeField] private Image characterImage;
     [SerializeField] private TextMeshProUGUI storyText;
     [SerializeField] private TextMeshProUGUI characterName;
+    [SerializeField] private Image UI;
+    [SerializeField] private Image UI2;
+
+
 
     [SerializeField] private GameObject choicePanel; // ボタン2つをまとめたパネル
     [SerializeField] private Button btn1;
@@ -81,9 +85,12 @@ public class StoryManager : MonoBehaviour
 
     private void Update()//ページ送り機能
     {
+       
         if (Input.GetKeyDown(KeyCode.Return))
         {
             textIndex++; // 次の行へ
+
+           
 
             if (textIndex >= storyDatas[storyIndex].stories.Count)
             {
@@ -110,7 +117,6 @@ public class StoryManager : MonoBehaviour
         }
         else//じゃなければ次のストーリーに自動で行く。
         {
-        
             textIndex = 0;
             storyIndex++;
             SetStoryElement(storyIndex, textIndex);
