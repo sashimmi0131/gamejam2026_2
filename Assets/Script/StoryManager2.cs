@@ -87,7 +87,11 @@ public class StoryManager2 : MonoBehaviour
     private void Update()
     {
         
-        if (background.sprite != null && background.sprite.name == "loading2_0")   //UIをテキスト番号０の時は非表示1以上は表示にしました。
+        if (background.sprite != null && background.sprite.name == "loading2_0"
+            || background.sprite.name == "end2_0"
+            || background.sprite.name == "end3_0"
+            || background.sprite.name == "ending_suchiru_sakuranasi_v001_0"
+            && textIndex == 8)   //指定の背景の時にUIを非表示にします
         {
             UI.gameObject.SetActive(false);
             UI2.gameObject.SetActive(false);

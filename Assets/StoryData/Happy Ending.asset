@@ -12,4 +12,85 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a435513dbd9b8f43a687006072831e2, type: 3}
   m_Name: Happy Ending
   m_EditorClassIdentifier: 
-  stories: []
+  stories:
+  - Background: {fileID: 229491671524072200, guid: ae3b8f7a417e77947b7a8097ff4a04b8, type: 3}
+    CharacterImage: {fileID: -1404659835321373372, guid: 550f2097b2df98443a485e753ab2882b, type: 3}
+    StoryText: 
+    CharacterName: 
+    isChoice: 0
+    choiceText1: 
+    targetIndex1: 0
+    choiceText2: 
+    targetIndex2: 0
+  - Background: {fileID: 1646605720068754351, guid: 628736a19c7ac4c4599d7bda9371f468, type: 3}
+    CharacterImage: {fileID: 3840582774828396276, guid: b4ec4a75a65484646b38e24343c4b443, type: 3}
+    StoryText: "\u300C\u79C1\u3001\u5148\u8F29\u306E\u3053\u3068\u304C\u597D\u304D\u3067\u3059\u300D"
+    CharacterName: 
+    isChoice: 0
+    choiceText1: 
+    targetIndex1: 0
+    choiceText2: 
+    targetIndex2: 0
+  - Background: {fileID: 1646605720068754351, guid: 628736a19c7ac4c4599d7bda9371f468, type: 3}
+    CharacterImage: {fileID: -9189474204515730777, guid: b0358b01a369703478f82c8a4ddb112d, type: 3}
+    StoryText: "\u305A\u3063\u3068\u524D\u304B\u3089\u3002\u5165\u5B66\u3057\u305F\u6642\u304B\u3089\u3002\n\u5C0A\u656C\u3058\u3083\u306A\u304F\u306A\u3063\u305F\u6642\u304B\u3089\u3002"
+    CharacterName: 
+    isChoice: 0
+    choiceText1: 
+    targetIndex1: 0
+    choiceText2: 
+    targetIndex2: 0
+  - Background: {fileID: 1646605720068754351, guid: 628736a19c7ac4c4599d7bda9371f468, type: 3}
+    CharacterImage: {fileID: -1404659835321373372, guid: 550f2097b2df98443a485e753ab2882b, type: 3}
+    StoryText: "\u300C\u4FFA\u3082\u597D\u304D\u3060\u300D"
+    CharacterName: 
+    isChoice: 0
+    choiceText1: 
+    targetIndex1: 0
+    choiceText2: 
+    targetIndex2: 0
+  - Background: {fileID: 1646605720068754351, guid: 628736a19c7ac4c4599d7bda9371f468, type: 3}
+    CharacterImage: {fileID: 3840582774828396276, guid: b4ec4a75a65484646b38e24343c4b443, type: 3}
+    StoryText: "\u7F8E\u6708\u306E\u76EE\u304B\u3089\u6D99\u304C\u3053\u307C\u308C\u308B\u3002"
+    CharacterName: 
+    isChoice: 0
+    choiceText1: 
+    targetIndex1: 0
+    choiceText2: 
+    targetIndex2: 0
+  - Background: {fileID: 1646605720068754351, guid: 628736a19c7ac4c4599d7bda9371f468, type: 3}
+    CharacterImage: {fileID: -9189474204515730777, guid: b0358b01a369703478f82c8a4ddb112d, type: 3}
+    StoryText: "\u300C\u3088\u304B\u3063\u305F.......\u300D"
+    CharacterName: "\u671D\u6BD4\u5948\u7F8E\u6708"
+    isChoice: 0
+    choiceText1: 
+    targetIndex1: 0
+    choiceText2: 
+    targetIndex2: 0
+  - Background: {fileID: 1646605720068754351, guid: 628736a19c7ac4c4599d7bda9371f468, type: 3}
+    CharacterImage: {fileID: -1404659835321373372, guid: 550f2097b2df98443a485e753ab2882b, type: 3}
+    StoryText: "\u5352\u696D\u3057\u3066\u3082\u4F1A\u304A\u3046\u3002\u9023\u7D61\u3057\u3088\u3046\u3002\n\u4ECA\u5EA6\u306F\u5148\u8F29\u5F8C\u8F29\u3058\u3083\u306A\u304F\u3002"
+    CharacterName: 
+    isChoice: 0
+    choiceText1: 
+    targetIndex1: 0
+    choiceText2: 
+    targetIndex2: 0
+  - Background: {fileID: -8922839646564034515, guid: e0a274fd1a7d524439f33008df6e5d33, type: 3}
+    CharacterImage: {fileID: -1404659835321373372, guid: 550f2097b2df98443a485e753ab2882b, type: 3}
+    StoryText: "\u604B\u4EBA\u3068\u3057\u3066\u3002"
+    CharacterName: "\u671D\u6BD4\u5948\u7F8E\u6708"
+    isChoice: 0
+    choiceText1: 
+    targetIndex1: 0
+    choiceText2: 
+    targetIndex2: 0
+  - Background: {fileID: 8342118328294247256, guid: 49337e448a4e31a40981c23d37d93ec7, type: 3}
+    CharacterImage: {fileID: -1404659835321373372, guid: 550f2097b2df98443a485e753ab2882b, type: 3}
+    StoryText: 
+    CharacterName: 
+    isChoice: 0
+    choiceText1: 
+    targetIndex1: 0
+    choiceText2: 
+    targetIndex2: 0
