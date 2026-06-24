@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: cd6f5392b0e9131418d30f75db003c82
+guid: 15777692fe4937c4f9ed83fcab8d204c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4818643248354753769
-    second: chara_sinnyuu_normal_v001_0
+      213: 5029325310495710969
+    second: chara_sinnyuu_taiikukann_v003_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,23 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: chara_sinnyuu_normal_v001_0
+      name: chara_sinnyuu_taiikukann_v003_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 66
         y: 0
-        width: 1000
-        height: 1000
+        width: 1118
+        height: 988
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7130b72fe7db02db0800000000000000
-      internalID: -4818643248354753769
+      spriteID: 9fe5aff29b0cbc540800000000000000
+      internalID: 5029325310495710969
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d574f5b662085b64c81b6a58a1e4b00e
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      chara_sinnyuu_normal_v001_0: -4818643248354753769
+      chara_sinnyuu_taiikukann_v003_0: 5029325310495710969
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

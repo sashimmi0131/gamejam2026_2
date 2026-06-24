@@ -28,6 +28,6 @@ MonoBehaviour:
     CharacterName: "\u76F8\u6CA2\u6052\u4E00"
     isChoice: 1
     choiceText1: "\u6700\u7D42\u7AE0"
-    targetIndex1: 11
+    targetIndex1: 10
     choiceText2: 
     targetIndex2: 0

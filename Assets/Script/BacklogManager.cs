@@ -38,6 +38,11 @@ public class BacklogManager : MonoBehaviour
     [SerializeField] private int visibleLogCount = 5;
     [SerializeField] private string choicePrefix = "> ";
 
+    [Header("Text Outline")]
+    [SerializeField] private bool useTextOutline = true;
+    [SerializeField] private Color textOutlineColor = Color.black;
+    [SerializeField, Range(0f, 1f)] private float textOutlineWidth = 0.2f;
+
     private readonly List<BacklogEntry> logs = new List<BacklogEntry>();
     private TMP_FontAsset logFont;
 
@@ -97,6 +102,7 @@ public class BacklogManager : MonoBehaviour
         if (combinedLogText != null && logFont != null)
         {
             combinedLogText.font = logFont;
+            ApplyTextOutline();
         }
     }
 
@@ -228,6 +234,22 @@ public class BacklogManager : MonoBehaviour
         {
             combinedLogText.font = logFont;
         }
+
+        ApplyTextOutline();
+    }
+
+    private void ApplyTextOutline()
+    {
+        if (combinedLogText == null || combinedLogText.fontMaterial == null)
+        {
+            return;
+        }
+
+        float outlineWidth = useTextOutline ? textOutlineWidth : 0f;
+
+        combinedLogText.fontMaterial.SetColor(ShaderUtilities.ID_OutlineColor, textOutlineColor);
+        combinedLogText.fontMaterial.SetFloat(ShaderUtilities.ID_OutlineWidth, outlineWidth);
+        combinedLogText.UpdateMeshPadding();
     }
 
     private void ConfigureScrollRect()

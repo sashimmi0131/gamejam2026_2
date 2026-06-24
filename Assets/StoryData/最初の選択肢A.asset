@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stories:
   - Background: {fileID: 9051815763795392716, guid: 95829bc1ad01a8f498e8430e5cad7310, type: 3}
-    CharacterImage: {fileID: -4818643248354753769, guid: cd6f5392b0e9131418d30f75db003c82, type: 3}
+    CharacterImage: {fileID: -9189474204515730777, guid: b0358b01a369703478f82c8a4ddb112d, type: 3}
     StoryText: 
     CharacterName: 
     isChoice: 0
