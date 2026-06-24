@@ -916,8 +916,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 14c549f8deb2c3648b573d8dd51c91c7, type: 2}
   - {fileID: 11400000, guid: 4a42d0df5204bce4ea6cfa51905109d9, type: 2}
   - {fileID: 11400000, guid: 3b21a91de9dd268499d1b495769781e0, type: 2}
-  - {fileID: 11400000, guid: 680f3ba3b1fde734caa2087b94ca5133, type: 2}
   - {fileID: 11400000, guid: 5df784ac81575ce49b2277d18a5f6873, type: 2}
+  - {fileID: 11400000, guid: 680f3ba3b1fde734caa2087b94ca5133, type: 2}
   - {fileID: 11400000, guid: 749fa7b90f15a0248a72c9425b96f3a0, type: 2}
   - {fileID: 11400000, guid: 8cee2f8f2b030ac41ac93aa026befcab, type: 2}
   - {fileID: 11400000, guid: 487d66c819a6f694f9f3635e2626969a, type: 2}
@@ -1218,6 +1218,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sinnaidoScript: {fileID: 572464024}
+  endingPanelImage: {fileID: 2095181365}
+  happyEndingSprite: {fileID: 0}
+  friendEndingSprite: {fileID: 0}
+  badEndingSprite: {fileID: 0}
 --- !u!4 &601241744
 Transform:
   m_ObjectHideFlags: 0
