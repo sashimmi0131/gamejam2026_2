@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "2\u56DE\u76EE\u306E\u9078\u629E\u80A2A"
   m_EditorClassIdentifier: 
   stories:
-  - Background: {fileID: 0}
+  - Background: {fileID: 229491671524072200, guid: ae3b8f7a417e77947b7a8097ff4a04b8, type: 3}
     CharacterImage: {fileID: -4818643248354753769, guid: cd6f5392b0e9131418d30f75db003c82, type: 3}
     StoryText: 
     CharacterName: 
