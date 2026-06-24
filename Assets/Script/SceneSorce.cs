@@ -1,3 +1,4 @@
+using System.Diagnostics.Tracing;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -12,6 +13,7 @@ public class SceneSource : SceneBase
     }
   
     StoryManager2 storyIndex;
+    [SerializeField] private sinnaidoBarScript barScript;   
     [SerializeField] private SceneButton[] sceneButtons;
     [SerializeField] private StoryManager2 storyManager;
     [SerializeField] private Button END;
@@ -29,7 +31,23 @@ public class SceneSource : SceneBase
             }
             sceneButton.button.onClick.AddListener(() =>
             {
+                Debug.Log(barScript.Sinnaido);
                 Debug.Log("error");
+                if (sinnaidoBarScript.sinnaido >= 3)
+                {
+                    SceneChange(SceneID.HappyEND);
+                    return;
+                }
+                else if (sinnaidoBarScript.sinnaido <= 0)
+                {
+                    SceneChange(SceneID.SinnyuuEND);
+                    return;
+                }
+                else
+                {
+                    SceneChange(SceneID.BadEND);
+                    return;
+                }
                 SceneChange(sceneButton.nextScene);
             });
             
@@ -42,9 +60,9 @@ public class SceneSource : SceneBase
     {
         if (storyManager != null)
         {
-            Debug.Log(storyManager.storyIndex);
-            Debug.Log(storyManager.textIndex);
-            if (storyManager.storyIndex == 10 && storyManager.textIndex == 8)
+            //Debug.Log(storyManager.storyIndex);
+            //Debug.Log(storyManager.textIndex);
+            if (storyManager.storyIndex == 10 && storyManager.textIndex == 5)
             {
                 END.gameObject.SetActive(true);
             }

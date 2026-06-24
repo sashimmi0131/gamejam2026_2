@@ -8,8 +8,9 @@ public class sinnaidoBarScript : MonoBehaviour
     // 0～3の画像を順番に登録
     public Sprite[] barSprites;
 
-    [Range(0, 3)]
-    public int sinnaido = 0;
+    [SerializeField,Range(0, 3)]
+    public static int sinnaido = 0;
+    public int Sinnaido => sinnaido;//外部から変数を読み取れるように書き換えました。
 
     private void Start()
     {

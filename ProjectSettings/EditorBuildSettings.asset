@@ -11,6 +11,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainScene.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Scenes/HappyEND.unity
+    guid: 427fcd0d1d537984ea6efb592a4c8523
+  - enabled: 1
+    path: Assets/Scenes/BadEND.unity
+    guid: f40f108eef72ff346b5c54d75b83e6f2
+  - enabled: 1
+    path: Assets/Scenes/SinnyuuEND.unity
+    guid: 17ac9db8ea9381d4e91a0ee71ccc8dc2
   - enabled: 0
     path: Assets/Scenes/BadEnding.unity
     guid: 9027c4b829ace2a4cab27b2e4457ab73

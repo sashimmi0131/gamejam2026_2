@@ -1671,9 +1671,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8cee2f8f2b030ac41ac93aa026befcab, type: 2}
   - {fileID: 11400000, guid: 487d66c819a6f694f9f3635e2626969a, type: 2}
   - {fileID: 11400000, guid: 330d6f63f8c27d6439faf7f8b66b87a2, type: 2}
-  - {fileID: 11400000, guid: 093ec82dbf938654ea23f68fc4835df1, type: 2}
-  - {fileID: 11400000, guid: 574f2a705a257b240804f23d3330798f, type: 2}
-  - {fileID: 11400000, guid: cb816d8d2d754c540a094020972e3c36, type: 2}
   background: {fileID: 1503962511}
   characterImage: {fileID: 1058952235}
   storyText: {fileID: 1421102246}
@@ -1909,7 +1906,6 @@ MonoBehaviour:
   - {fileID: -2335762460258410051, guid: cb1f0eaf54a5c6849b8d512d4924ab40, type: 3}
   - {fileID: -2983356566689714503, guid: 5e5aa589a058ba840a8c381bf96086ed, type: 3}
   - {fileID: 5052535643678638449, guid: 25470497a11955d4fb5cfa4b33396259, type: 3}
-  sinnaido: 0
 --- !u!114 &572464025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2109,7 +2105,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 601241742}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5663c02b49e7aa8479668cfae88f7698, type: 3}
   m_Name: 
@@ -2732,9 +2728,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ec656a343dfdc041842c7e009e3c1dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  barScript: {fileID: 572464024}
   sceneButtons:
   - button: {fileID: 373796754}
-    nextScene: 0
+    nextScene: 1
   storyManager: {fileID: 561944282}
   END: {fileID: 373796754}
 --- !u!4 &1110923004
