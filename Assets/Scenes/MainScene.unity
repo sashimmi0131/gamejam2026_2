@@ -1993,9 +1993,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sinnaidoScript: {fileID: 572464024}
   endingPanelImage: {fileID: 0}
-  happyEndingSprite: {fileID: 0}
-  friendEndingSprite: {fileID: 0}
-  badEndingSprite: {fileID: 0}
+  happyEndingIndex: 11
+  friendEndingIndex: 12
+  badEndingIndex: 13
+  happyEndingSprite: {fileID: -8922839646564034515, guid: e0a274fd1a7d524439f33008df6e5d33, type: 3}
+  friendEndingSprite: {fileID: 6723427780511406533, guid: 0757feaf859a12b419697d6343e915ab, type: 3}
+  badEndingSprite: {fileID: -9116427644973029592, guid: eb4e3cc8b6e0ef841a961dfd788b6ec4, type: 3}
 --- !u!4 &601241744
 Transform:
   m_ObjectHideFlags: 0
