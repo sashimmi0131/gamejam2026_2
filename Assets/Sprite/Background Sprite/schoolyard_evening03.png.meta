@@ -1,13 +1,10 @@
 fileFormatVersion: 2
-guid: ae6717e37101ce94387097c6ba4ac8d4
+guid: 5a85500f6fa07bf44b21b628b389a250
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3565439635444001372
-    second: chara_hiroin_bag_v001_0
-  - first:
-      213: -1953741884296093934
-    second: chara_hiroin_bag_v001_1
+      213: -244710243028621374
+    second: schoolyard_evening03_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -103,67 +100,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: chara_hiroin_bag_v001_0
+      name: schoolyard_evening03_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 1000
-        height: 1000
+        width: 1344
+        height: 896
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: c5aecba357cfa7130800000000000000
-      internalID: 3565439635444001372
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: chara_hiroin_bag_v001_1
-      rect:
-        serializedVersion: 2
-        x: 701
-        y: 526
-        width: 7
-        height: 27
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 21f9abb8b1ae2e4e0800000000000000
-      internalID: -1953741884296093934
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: kabannmoti_0
-      rect:
-        serializedVersion: 2
-        x: 129
-        y: 0
-        width: 599
-        height: 1000
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 16, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c76b93e8287172f41b84d382376e77c7
-      internalID: -1268873496
+      spriteID: 2c7216b945d9a9cf0800000000000000
+      internalID: -244710243028621374
       vertices: []
       indices: 
       edges: []
@@ -172,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: ee98125b608ef0f4682c585f3cbdc06f
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -182,9 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      chara_hiroin_bag_v001_0: 3565439635444001372
-      chara_hiroin_bag_v001_1: -1953741884296093934
-      kabannmoti_0: -1268873496
+      schoolyard_evening03_0: -244710243028621374
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

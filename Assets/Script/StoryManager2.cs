@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Serialization;
@@ -81,18 +83,22 @@ public class StoryManager2 : MonoBehaviour
             backlogManager.BeforeBacklogOpen -= AddCurrentStoryToBacklog;
         }
     }
-
+  
     private void Update()
     {
-        if (textIndex == 0)//UIをテキスト番号０の時は非表示1以上は表示にしました。
+        
+        if (background.sprite != null && background.sprite.name == "loading2_0")   //UIをテキスト番号０の時は非表示1以上は表示にしました。
         {
             UI.gameObject.SetActive(false);
+            UI2.gameObject.SetActive(false);
         }
         else 
         {
             UI.gameObject.SetActive(true);
+            UI2.gameObject.SetActive(true);
         }
-        
+      
+
         if (ShouldReadNext())
         {
             ReadNext();
