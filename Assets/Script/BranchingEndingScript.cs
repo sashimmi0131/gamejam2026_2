@@ -8,10 +8,17 @@ public class BranchingEndingScript : MonoBehaviour
     [Header("全画面表示用の一枚絵Image")]
     public Image endingPanelImage;
 
+<<<<<<< HEAD
+    [Header("各エンディングのStoryData番号(要素番号)")]
+    public int happyEndingIndex = 11;  // 好感度3以上
+    public int friendEndingIndex = 12; // 好感度2
+    public int badEndingIndex = 13;    // 好感度1以下
+=======
     [Header("各エンディングの画像（スチル）")]
     public Sprite happyEndingSprite;  // 好感度3以上
     public Sprite friendEndingSprite; // 好感度2
     public Sprite badEndingSprite;    // 好感度1以下
+>>>>>>> ff69f8e70d75c6f50369bb6148aad91ffc08704b
 
     // ★ストーリーの最後（告白タイミング）でこのメソッドを呼び出す
     public void ShowEnding()
