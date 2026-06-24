@@ -1,6 +1,9 @@
 using System.Collections;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 public class StoryManager2 : MonoBehaviour
@@ -10,6 +13,9 @@ public class StoryManager2 : MonoBehaviour
     [SerializeField] private Image characterImage;
     [SerializeField] private TextMeshProUGUI storyText;
     [SerializeField] private TextMeshProUGUI characterName;
+    [SerializeField] private Image UI;
+    [SerializeField] private Image UI2;
+
 
     [Header("Choice")]
     [SerializeField] private GameObject choicePanel;
@@ -20,6 +26,12 @@ public class StoryManager2 : MonoBehaviour
 
     [Header("Backlog")]
     [SerializeField] private BacklogManager backlogManager;
+
+    [Header("Advance Conversation Sound")]
+    [FormerlySerializedAs("backgroundButtonAudioSource")]
+    [SerializeField] private AudioSource advanceConversationAudioSource;
+    [FormerlySerializedAs("backgroundButtonSound")]
+    [SerializeField] private AudioClip advanceConversationSound;
 
     [Header("Typewriter")]
     [SerializeField] private float typewriterSpeed = 0.05f;
@@ -33,18 +45,44 @@ public class StoryManager2 : MonoBehaviour
     private bool isTyping;
     private int loggedStoryIndex = -1;
     private int loggedTextIndex = -1;
+    private bool shouldPlayAdvanceConversationSound;
 
     public int storyIndex { get; private set; }
     public int textIndex { get; private set; }
 
+  
+
     private void Start()
     {
         ApplyBacklogFont();
+
+        if (backlogManager != null)
+        {
+            backlogManager.BeforeBacklogOpen += AddCurrentStoryToBacklog;
+        }
+
         SetStoryElement(storyIndex, textIndex);
+    }
+
+    private void OnDestroy()
+    {
+        if (backlogManager != null)
+        {
+            backlogManager.BeforeBacklogOpen -= AddCurrentStoryToBacklog;
+        }
     }
 
     private void Update()
     {
+        if (textIndex == 0)//UIをテキスト番号０の時は非表示1以上は表示にしました。
+        {
+            UI.gameObject.SetActive(false);
+        }
+        else 
+        {
+            UI.gameObject.SetActive(true);
+        }
+        
         if (ShouldReadNext())
         {
             ReadNext();
@@ -53,12 +91,59 @@ public class StoryManager2 : MonoBehaviour
 
     private bool ShouldReadNext()
     {
+        shouldPlayAdvanceConversationSound = false;
+
         if (Input.GetKeyDown(KeyCode.Return))
         {
+            shouldPlayAdvanceConversationSound = true;
             return true;
         }
 
-        return Input.GetMouseButtonDown(0);
+        if (!Input.GetMouseButtonDown(0))
+        {
+            return false;
+        }
+
+        if (IsPointerOverControlUi())
+        {
+            return false;
+        }
+
+        shouldPlayAdvanceConversationSound = true;
+        return true;
+    }
+
+    private bool IsPointerOverControlUi()
+    {
+        if (EventSystem.current == null)
+        {
+            return false;
+        }
+
+        PointerEventData pointerData = new PointerEventData(EventSystem.current)
+        {
+            position = Input.mousePosition
+        };
+
+        List<RaycastResult> raycastResults = new List<RaycastResult>();
+        EventSystem.current.RaycastAll(pointerData, raycastResults);
+
+        foreach (RaycastResult result in raycastResults)
+        {
+            GameObject hitObject = result.gameObject;
+
+            if (hitObject.GetComponentInParent<Button>() != null ||
+                hitObject.GetComponentInParent<Toggle>() != null ||
+                hitObject.GetComponentInParent<Slider>() != null ||
+                hitObject.GetComponentInParent<Scrollbar>() != null ||
+                hitObject.GetComponentInParent<TMP_Dropdown>() != null ||
+                hitObject.GetComponentInParent<ScrollRect>() != null)
+            {
+                return true;
+            }
+        }
+
+        return false;
     }
 
     private void ReadNext()
@@ -70,6 +155,7 @@ public class StoryManager2 : MonoBehaviour
 
         if (isTyping)
         {
+            PlayAdvanceConversationSoundIfNeeded();
             CompleteTypewriterText();
             return;
         }
@@ -79,6 +165,7 @@ public class StoryManager2 : MonoBehaviour
             return;
         }
 
+        PlayAdvanceConversationSoundIfNeeded();
         AddCurrentStoryToBacklog();
         textIndex++;
         ProgressionStory();
@@ -297,6 +384,23 @@ public class StoryManager2 : MonoBehaviour
         }
 
         choiceAudioSource.PlayOneShot(choiceSound);
+    }
+
+    private void PlayAdvanceConversationSoundIfNeeded()
+    {
+        if (!shouldPlayAdvanceConversationSound)
+        {
+            return;
+        }
+
+        shouldPlayAdvanceConversationSound = false;
+
+        if (advanceConversationAudioSource == null || advanceConversationSound == null)
+        {
+            return;
+        }
+
+        advanceConversationAudioSource.PlayOneShot(advanceConversationSound);
     }
 
     private void HideChoicePanel()

@@ -14,7 +14,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stories:
   - Background: {fileID: 5274173733187224425, guid: 7c6b5f8056ac86443b620ac79ab83811, type: 3}
-    CharacterImage: {fileID: -4818643248354753769, guid: cd6f5392b0e9131418d30f75db003c82, type: 3}
+    CharacterImage: {fileID: -1404659835321373372, guid: 550f2097b2df98443a485e753ab2882b, type: 3}
+    StoryText: "\u30D7\u30ED\u30ED\u30FC\u30B0"
+    CharacterName: "\u4E3B\u4EBA\u516C"
+    isChoice: 0
+    choiceText1: 
+    targetIndex1: 0
+    choiceText2: 
+    targetIndex2: 0
+  - Background: {fileID: 5274173733187224425, guid: 7c6b5f8056ac86443b620ac79ab83811, type: 3}
+    CharacterImage: {fileID: -1404659835321373372, guid: 550f2097b2df98443a485e753ab2882b, type: 3}
     StoryText: "\u4E8C\u6708\u4E0B\u65EC\u3002"
     CharacterName: "\u4E3B\u4EBA\u516C"
     isChoice: 0
@@ -23,7 +32,7 @@ MonoBehaviour:
     choiceText2: 
     targetIndex2: 0
   - Background: {fileID: 5274173733187224425, guid: 7c6b5f8056ac86443b620ac79ab83811, type: 3}
-    CharacterImage: {fileID: -4818643248354753769, guid: cd6f5392b0e9131418d30f75db003c82, type: 3}
+    CharacterImage: {fileID: -1404659835321373372, guid: 550f2097b2df98443a485e753ab2882b, type: 3}
     StoryText: "\u4FFA\u306F\u90E8\u9577\u3068\u3057\u3066\u3001\u6700\u5F8C\u306E\u90E8\u5BA4\u306E\u7247\u3065\u3051\u3092\u3057\u3066\u3044\u305F\u3002"
     CharacterName: "\u4E3B\u4EBA\u516C"
     isChoice: 0
@@ -32,7 +41,7 @@ MonoBehaviour:
     choiceText2: 
     targetIndex2: 0
   - Background: {fileID: 5274173733187224425, guid: 7c6b5f8056ac86443b620ac79ab83811, type: 3}
-    CharacterImage: {fileID: -4818643248354753769, guid: cd6f5392b0e9131418d30f75db003c82, type: 3}
+    CharacterImage: {fileID: -1404659835321373372, guid: 550f2097b2df98443a485e753ab2882b, type: 3}
     StoryText: "\u5F8C\u8F29\u305F\u3061\u306F\u3059\u3067\u306B\u5E30\u3063\u3066\u3057\u307E\u3044\u3001\u6B8B\u3063\u3066\u3044\u308B\u306E\u306F\u30DE\u30CD\u30FC\u30B8\u30E3\u30FC\u306E\u300E\u671D\u6BD4\u5948\u7F8E\u6708\u300F\u3060\u3051\u3060\u3063\u305F\u3002"
     CharacterName: "\u4E3B\u4EBA\u516C"
     isChoice: 0
@@ -50,7 +59,7 @@ MonoBehaviour:
     choiceText2: 
     targetIndex2: 0
   - Background: {fileID: 5274173733187224425, guid: 7c6b5f8056ac86443b620ac79ab83811, type: 3}
-    CharacterImage: {fileID: -4818643248354753769, guid: cd6f5392b0e9131418d30f75db003c82, type: 3}
+    CharacterImage: {fileID: -1404659835321373372, guid: 550f2097b2df98443a485e753ab2882b, type: 3}
     StoryText: "\u300C\u3093\uFF1F\u3042\u3041\u60AA\u3044\u300D"
     CharacterName: "\u4E3B\u4EBA\u516C"
     isChoice: 0
@@ -68,7 +77,7 @@ MonoBehaviour:
     choiceText2: 
     targetIndex2: 0
   - Background: {fileID: 5274173733187224425, guid: 7c6b5f8056ac86443b620ac79ab83811, type: 3}
-    CharacterImage: {fileID: -4818643248354753769, guid: cd6f5392b0e9131418d30f75db003c82, type: 3}
+    CharacterImage: {fileID: -1404659835321373372, guid: 550f2097b2df98443a485e753ab2882b, type: 3}
     StoryText: "\u305D\u3046\u8A00\u3044\u306A\u304C\u3089\u7B11\u3046\u7F8E\u6708\u3002\n\u4FFA\u306F\u3075\u3068\u624B\u3092\u6B62\u3081\u308B\u3002"
     CharacterName: "\u4E3B\u4EBA\u516C"
     isChoice: 0
@@ -77,7 +86,7 @@ MonoBehaviour:
     choiceText2: 
     targetIndex2: 0
   - Background: {fileID: 5274173733187224425, guid: 7c6b5f8056ac86443b620ac79ab83811, type: 3}
-    CharacterImage: {fileID: -4818643248354753769, guid: cd6f5392b0e9131418d30f75db003c82, type: 3}
+    CharacterImage: {fileID: -1404659835321373372, guid: 550f2097b2df98443a485e753ab2882b, type: 3}
     StoryText: "\u5165\u5B66\u3057\u3066\u304B\u3089\u4E09\u5E74\u9593\u3002\n\u3053\u306E\u90E8\u6D3B\u306B\u3044\u308B\u6642\u9593\u306F\u8AB0\u3088\u308A\u3082\u9577\u304B\u3063\u305F\u3002"
     CharacterName: "\u4E3B\u4EBA\u516C"
     isChoice: 0
@@ -86,11 +95,11 @@ MonoBehaviour:
     choiceText2: 
     targetIndex2: 0
   - Background: {fileID: 5274173733187224425, guid: 7c6b5f8056ac86443b620ac79ab83811, type: 3}
-    CharacterImage: {fileID: -4818643248354753769, guid: cd6f5392b0e9131418d30f75db003c82, type: 3}
+    CharacterImage: {fileID: -1404659835321373372, guid: 550f2097b2df98443a485e753ab2882b, type: 3}
     StoryText: "\u305D\u3057\u3066\u6C17\u4ED8\u3051\u3070\u3001\u3044\u3064\u3082\u8FD1\u304F\u306B\u306F\u7F8E\u6708\u304C\u3044\u305F\u3002"
     CharacterName: "\u4E3B\u4EBA\u516C"
-    isChoice: 0
-    choiceText1: 
-    targetIndex1: 0
+    isChoice: 1
+    choiceText1: "\u7B2C\u4E00\u7AE0"
+    targetIndex1: 1
     choiceText2: 
     targetIndex2: 0

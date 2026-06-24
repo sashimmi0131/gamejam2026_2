@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4a435513dbd9b8f43a687006072831e2, type: 3}
-  m_Name: "\u4E00\u56DE\u76EE\u9078\u629E\u307E\u3067"
+  m_Name: "\u7B2C\u4E00\u7AE0"
   m_EditorClassIdentifier: 
   stories:
-  - Background: {fileID: 0}
-    CharacterImage: {fileID: -4818643248354753769, guid: cd6f5392b0e9131418d30f75db003c82, type: 3}
+  - Background: {fileID: -1404659835321373372, guid: 550f2097b2df98443a485e753ab2882b, type: 3}
+    CharacterImage: {fileID: -1404659835321373372, guid: 550f2097b2df98443a485e753ab2882b, type: 3}
     StoryText: "\u7B2C\u4E00\u7AE0"
     CharacterName: "\u4E3B\u4EBA\u516C"
     isChoice: 0
@@ -105,7 +105,7 @@ MonoBehaviour:
     targetIndex2: 0
   - Background: {fileID: 9051815763795392716, guid: 95829bc1ad01a8f498e8430e5cad7310, type: 3}
     CharacterImage: {fileID: -4818643248354753769, guid: cd6f5392b0e9131418d30f75db003c82, type: 3}
-    StoryText: "\u5927\u5B66\u9032\u5B66\u3002\u65B0\u3057\u3044\u74B0\u5883\u3002\n\u304D\u3063\u3068\u4ECA\u307E\u3067\u901A\u308A\u306B\u306F\u3044\u304B\u306A\u3044\u3002"
+    StoryText: 
     CharacterName: "\u4E3B\u4EBA\u516C"
     isChoice: 1
     choiceText1: "\u591A\u5206\u5FD9\u3057\u304F\u306A\u308B\u3002"
