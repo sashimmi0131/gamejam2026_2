@@ -1,8 +1,6 @@
 using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class StoryManager2 : MonoBehaviour
@@ -47,21 +45,7 @@ public class StoryManager2 : MonoBehaviour
     private void Start()
     {
         ApplyBacklogFont();
-
-        if (backlogManager != null)
-        {
-            backlogManager.BeforeBacklogOpen += AddCurrentStoryToBacklog;
-        }
-
         SetStoryElement(storyIndex, textIndex);
-    }
-
-    private void OnDestroy()
-    {
-        if (backlogManager != null)
-        {
-            backlogManager.BeforeBacklogOpen -= AddCurrentStoryToBacklog;
-        }
     }
 
     private void Update()
@@ -88,50 +72,7 @@ public class StoryManager2 : MonoBehaviour
             return true;
         }
 
-        if (!Input.GetMouseButtonDown(0))
-        {
-            return false;
-        }
-
-        if (IsPointerOverControlUi())
-        {
-            return false;
-        }
-
-        return true;
-    }
-
-    private bool IsPointerOverControlUi()
-    {
-        if (EventSystem.current == null)
-        {
-            return false;
-        }
-
-        PointerEventData pointerData = new PointerEventData(EventSystem.current)
-        {
-            position = Input.mousePosition
-        };
-
-        List<RaycastResult> raycastResults = new List<RaycastResult>();
-        EventSystem.current.RaycastAll(pointerData, raycastResults);
-
-        foreach (RaycastResult result in raycastResults)
-        {
-            GameObject hitObject = result.gameObject;
-
-            if (hitObject.GetComponentInParent<Button>() != null ||
-                hitObject.GetComponentInParent<Toggle>() != null ||
-                hitObject.GetComponentInParent<Slider>() != null ||
-                hitObject.GetComponentInParent<Scrollbar>() != null ||
-                hitObject.GetComponentInParent<TMP_Dropdown>() != null ||
-                hitObject.GetComponentInParent<ScrollRect>() != null)
-            {
-                return true;
-            }
-        }
-
-        return false;
+        return Input.GetMouseButtonDown(0);
     }
 
     private void ReadNext()
