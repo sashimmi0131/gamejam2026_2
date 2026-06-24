@@ -16,32 +16,16 @@ public class sinnaidoBarScript : MonoBehaviour
         UpdateBar();
     }
 
-    // 元のメソッド（内部処理用、または正の数用として残す）
     public void ChangeSinnaido(int value)
     {
         sinnaido += value;
         sinnaido = Mathf.Clamp(sinnaido, 0, 3);
+
         UpdateBar();
-    }
-
-    // ★追加：ボタンのOn Clickから直接呼ぶ用のメソッド
-    public void IncreaseSinnaido()
-    {
-        Debug.Log("プラスボタンが押されました！現在の親愛度: " + sinnaido);
-        ChangeSinnaido(1); // 1増やす
-    }
-
-    public void DecreaseSinnaido()
-    {
-        Debug.Log("マイナスボタンが押されました！現在の親愛度: " + sinnaido);
-        ChangeSinnaido(-1); // 1減らす
     }
 
     private void UpdateBar()
     {
-        if (barSprites != null && sinnaido < barSprites.Length && barImage != null)
-        {
-            barImage.sprite = barSprites[sinnaido];
-        }
+        barImage.sprite = barSprites[sinnaido];
     }
 }
