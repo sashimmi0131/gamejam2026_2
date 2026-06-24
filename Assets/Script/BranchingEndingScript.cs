@@ -7,9 +7,9 @@ public class BranchingEndingScript : MonoBehaviour
     public StoryManager2 storyManager;
 
     [Header("各エンディングのStoryData番号(要素番号)")]
-    public int happyEndingIndex = 6;  // 好感度3以上
-    public int friendEndingIndex = 7; // 好感度2
-    public int badEndingIndex = 8;    // 好感度1以下
+    public int happyEndingIndex = 11;  // 好感度3以上
+    public int friendEndingIndex = 12; // 好感度2
+    public int badEndingIndex = 13;    // 好感度1以下
 
     public void GoToEndingStory()
     {
