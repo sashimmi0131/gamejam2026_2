@@ -1560,6 +1560,8 @@ MonoBehaviour:
   characterName: {fileID: 1687167610}
   UI: {fileID: 244432738}
   UI2: {fileID: 572464025}
+  UI3: {fileID: 1153665900}
+  UI4: {fileID: 496734308}
   Canvas1: {fileID: 2080047851}
   choicePanel: {fileID: 471948651}
   btn1: {fileID: 939492902}
@@ -5640,11 +5642,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4919222737381444, guid: 9dca676f2ff988a45a505d56f3bd0bb6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 58
+      value: 251
       objectReference: {fileID: 0}
     - target: {fileID: 4919222737381444, guid: 9dca676f2ff988a45a505d56f3bd0bb6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 39
+      value: 847
       objectReference: {fileID: 0}
     - target: {fileID: 4919222737381444, guid: 9dca676f2ff988a45a505d56f3bd0bb6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5732,7 +5734,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 198999705567538108, guid: 9dca676f2ff988a45a505d56f3bd0bb6, type: 3}
       propertyPath: ShapeModule.randomDirectionAmount
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 199692057272603790, guid: 9dca676f2ff988a45a505d56f3bd0bb6, type: 3}
       propertyPath: m_SortingOrder

@@ -17,6 +17,8 @@ public class StoryManager2 : MonoBehaviour
     [SerializeField] private TextMeshProUGUI characterName;
     [SerializeField] private Image UI;
     [SerializeField] private Image UI2;
+    [SerializeField] private Image UI3;
+    [SerializeField] private Image UI4;
     [SerializeField] private GameObject Canvas1;
 
     [Header("Choice")]
@@ -99,11 +101,15 @@ public class StoryManager2 : MonoBehaviour
         {
             UI.gameObject.SetActive(false);
             UI2.gameObject.SetActive(false);
+            UI3.gameObject.SetActive(false);
+            UI4.gameObject.SetActive(false);
         }
         else 
         {
             UI.gameObject.SetActive(true);
             UI2.gameObject.SetActive(true);
+            UI3.gameObject.SetActive(true);
+            UI4.gameObject.SetActive(true);
         }
       
 
