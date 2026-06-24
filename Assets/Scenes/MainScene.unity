@@ -925,6 +925,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8cee2f8f2b030ac41ac93aa026befcab, type: 2}
   - {fileID: 11400000, guid: 487d66c819a6f694f9f3635e2626969a, type: 2}
   - {fileID: 11400000, guid: 330d6f63f8c27d6439faf7f8b66b87a2, type: 2}
+  - {fileID: 11400000, guid: 3894b0bbb1696574aaa2dbeac183a979, type: 2}
+  - {fileID: 11400000, guid: 4167b29228eb28a46a9388b5bcf64bfb, type: 2}
+  - {fileID: 11400000, guid: 765e48310bed38844b0c8087ad2e0f5d, type: 2}
   background: {fileID: 1503962511}
   characterImage: {fileID: 1058952235}
   storyText: {fileID: 1421102246}
@@ -1224,10 +1227,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sinnaidoScript: {fileID: 572464024}
-  endingPanelImage: {fileID: 2095181365}
-  happyEndingSprite: {fileID: 0}
-  friendEndingSprite: {fileID: 0}
-  badEndingSprite: {fileID: 0}
+  storyManager: {fileID: 561944282}
+  happyEndingIndex: 11
+  friendEndingIndex: 12
+  badEndingIndex: 13
 --- !u!4 &601241744
 Transform:
   m_ObjectHideFlags: 0
