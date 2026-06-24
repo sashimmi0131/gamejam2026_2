@@ -13,9 +13,9 @@ MonoBehaviour:
   m_Name: "\u7B2C\u4E00\u7AE0"
   m_EditorClassIdentifier: 
   stories:
-  - Background: {fileID: -1404659835321373372, guid: 550f2097b2df98443a485e753ab2882b, type: 3}
+  - Background: {fileID: 229491671524072200, guid: ae3b8f7a417e77947b7a8097ff4a04b8, type: 3}
     CharacterImage: {fileID: -1404659835321373372, guid: 550f2097b2df98443a485e753ab2882b, type: 3}
-    StoryText: "\u7B2C\u4E00\u7AE0"
+    StoryText: 
     CharacterName: "\u4E3B\u4EBA\u516C"
     isChoice: 0
     choiceText1: 
@@ -59,7 +59,7 @@ MonoBehaviour:
     choiceText2: 
     targetIndex2: 0
   - Background: {fileID: 9051815763795392716, guid: 95829bc1ad01a8f498e8430e5cad7310, type: 3}
-    CharacterImage: {fileID: -4818643248354753769, guid: cd6f5392b0e9131418d30f75db003c82, type: 3}
+    CharacterImage: {fileID: 3758796766757478878, guid: 2eb710efb164c4345b2fec4c0daa0cd3, type: 3}
     StoryText: "\u300C\u5225\u306B....\u300D"
     CharacterName: "\u671D\u6BD4\u5948\u7F8E\u6708"
     isChoice: 0
@@ -77,7 +77,7 @@ MonoBehaviour:
     choiceText2: 
     targetIndex2: 0
   - Background: {fileID: 9051815763795392716, guid: 95829bc1ad01a8f498e8430e5cad7310, type: 3}
-    CharacterImage: {fileID: -4818643248354753769, guid: cd6f5392b0e9131418d30f75db003c82, type: 3}
+    CharacterImage: {fileID: 3758796766757478878, guid: 2eb710efb164c4345b2fec4c0daa0cd3, type: 3}
     StoryText: "\u300C\u5148\u8F29\u3001\u5352\u696D\u3057\u305F\u3089\u5FD9\u3057\u304F\u306A\u308A\u307E\u3059\u304B\uFF1F\u300D"
     CharacterName: "\u671D\u6BD4\u5948\u7F8E\u6708"
     isChoice: 0

@@ -1,10 +1,13 @@
 fileFormatVersion: 2
-guid: cd6f5392b0e9131418d30f75db003c82
+guid: ae6717e37101ce94387097c6ba4ac8d4
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4818643248354753769
-    second: chara_sinnyuu_normal_v001_0
+      213: 3565439635444001372
+    second: chara_hiroin_bag_v001_0
+  - first:
+      213: -1953741884296093934
+    second: chara_hiroin_bag_v001_1
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,13 +103,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: chara_sinnyuu_normal_v001_0
+      name: chara_hiroin_bag_v001_0
       rect:
         serializedVersion: 2
-        x: 0
+        x: 127
         y: 0
-        width: 1000
-        height: 1000
+        width: 1
+        height: 995
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -115,8 +118,52 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7130b72fe7db02db0800000000000000
-      internalID: -4818643248354753769
+      spriteID: c5aecba357cfa7130800000000000000
+      internalID: 3565439635444001372
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_hiroin_bag_v001_1
+      rect:
+        serializedVersion: 2
+        x: 701
+        y: 526
+        width: 7
+        height: 27
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 21f9abb8b1ae2e4e0800000000000000
+      internalID: -1953741884296093934
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: kabannmoti_0
+      rect:
+        serializedVersion: 2
+        x: 129
+        y: 0
+        width: 599
+        height: 1000
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 16, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c76b93e8287172f41b84d382376e77c7
+      internalID: -1268873496
       vertices: []
       indices: 
       edges: []
@@ -125,7 +172,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d574f5b662085b64c81b6a58a1e4b00e
+    spriteID: ee98125b608ef0f4682c585f3cbdc06f
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +182,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      chara_sinnyuu_normal_v001_0: -4818643248354753769
+      chara_hiroin_bag_v001_0: 3565439635444001372
+      chara_hiroin_bag_v001_1: -1953741884296093934
+      kabannmoti_0: -1268873496
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

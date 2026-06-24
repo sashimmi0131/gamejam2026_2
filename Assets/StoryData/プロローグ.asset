@@ -15,7 +15,7 @@ MonoBehaviour:
   stories:
   - Background: {fileID: 5274173733187224425, guid: 7c6b5f8056ac86443b620ac79ab83811, type: 3}
     CharacterImage: {fileID: -1404659835321373372, guid: 550f2097b2df98443a485e753ab2882b, type: 3}
-    StoryText: "\u30D7\u30ED\u30ED\u30FC\u30B0"
+    StoryText: 
     CharacterName: "\u4E3B\u4EBA\u516C"
     isChoice: 0
     choiceText1: 
@@ -50,7 +50,7 @@ MonoBehaviour:
     choiceText2: 
     targetIndex2: 0
   - Background: {fileID: 5274173733187224425, guid: 7c6b5f8056ac86443b620ac79ab83811, type: 3}
-    CharacterImage: {fileID: -4818643248354753769, guid: cd6f5392b0e9131418d30f75db003c82, type: 3}
+    CharacterImage: {fileID: 3840582774828396276, guid: b4ec4a75a65484646b38e24343c4b443, type: 3}
     StoryText: "\u300C\u5148\u8F29\u3001\u305D\u308C\u306F\u3053\u3063\u3061\u306E\u68DA\u3067\u3059\u300D"
     CharacterName: "\u671D\u6BD4\u5948\u7F8E\u6708"
     isChoice: 0
@@ -68,7 +68,7 @@ MonoBehaviour:
     choiceText2: 
     targetIndex2: 0
   - Background: {fileID: 5274173733187224425, guid: 7c6b5f8056ac86443b620ac79ab83811, type: 3}
-    CharacterImage: {fileID: -4818643248354753769, guid: cd6f5392b0e9131418d30f75db003c82, type: 3}
+    CharacterImage: {fileID: -9189474204515730777, guid: b0358b01a369703478f82c8a4ddb112d, type: 3}
     StoryText: "\u300C\u3082\u3046\u3002\u5352\u696D\u524D\u3060\u304B\u3089\u3063\u3066\u6C17\u304C\u629C\u3051\u3066\u307E\u305B\u3093\u304B\uFF1F\u300D"
     CharacterName: "\u671D\u6BD4\u5948\u7F8E\u6708"
     isChoice: 0
@@ -77,7 +77,7 @@ MonoBehaviour:
     choiceText2: 
     targetIndex2: 0
   - Background: {fileID: 5274173733187224425, guid: 7c6b5f8056ac86443b620ac79ab83811, type: 3}
-    CharacterImage: {fileID: -1404659835321373372, guid: 550f2097b2df98443a485e753ab2882b, type: 3}
+    CharacterImage: {fileID: 8583323561621049116, guid: efd67cf680c432f4fa176a1205b83691, type: 3}
     StoryText: "\u305D\u3046\u8A00\u3044\u306A\u304C\u3089\u7B11\u3046\u7F8E\u6708\u3002\n\u4FFA\u306F\u3075\u3068\u624B\u3092\u6B62\u3081\u308B\u3002"
     CharacterName: "\u4E3B\u4EBA\u516C"
     isChoice: 0

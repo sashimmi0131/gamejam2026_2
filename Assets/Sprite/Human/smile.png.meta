@@ -1,10 +1,16 @@
 fileFormatVersion: 2
-guid: cd6f5392b0e9131418d30f75db003c82
+guid: efd67cf680c432f4fa176a1205b83691
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4818643248354753769
-    second: chara_sinnyuu_normal_v001_0
+      213: 8583323561621049116
+    second: chara_hiroin_smiie_v001_0
+  - first:
+      213: -1802964367132473141
+    second: chara_hiroin_smiie_v001_1
+  - first:
+      213: -7406499559455406152
+    second: chara_hiroin_smiie_v001_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +106,29 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: chara_sinnyuu_normal_v001_0
+      name: chara_hiroin_smiie_v001_0
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 173
+        width: 6
+        height: 13
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c1fc9aa8d471e1770800000000000000
+      internalID: 8583323561621049116
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_hiroin_smiie_v001_1
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +143,30 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 7130b72fe7db02db0800000000000000
-      internalID: -4818643248354753769
+      spriteID: bc8c16ae5759af6e0800000000000000
+      internalID: -1802964367132473141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: chara_hiroin_smiie_v001_2
+      rect:
+        serializedVersion: 2
+        x: 225
+        y: 139
+        width: 10
+        height: 23
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b7c29954e3d63990800000000000000
+      internalID: -7406499559455406152
       vertices: []
       indices: 
       edges: []
@@ -125,7 +175,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: d574f5b662085b64c81b6a58a1e4b00e
+    spriteID: de84af4d2791c6a48b2f5f32e9292b0c
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +185,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      chara_sinnyuu_normal_v001_0: -4818643248354753769
+      chara_hiroin_smiie_v001_0: 8583323561621049116
+      chara_hiroin_smiie_v001_1: -1802964367132473141
+      chara_hiroin_smiie_v001_2: -7406499559455406152
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
