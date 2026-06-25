@@ -911,7 +911,7 @@ MonoBehaviour:
   seVolumeLabel: {fileID: 1021167971}
   settingsFont: {fileID: 11400000, guid: 7313f2a96511f4242971192a4e6069cf, type: 2}
   extraJapaneseTexts: []
-  storyManager: {fileID: 0}
+  storyManager: {fileID: 1382777648}
   minAutoModeInterval: 0.1
   maxAutoModeInterval: 3
   titleSceneName: Title
@@ -4414,7 +4414,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -10.17872, y: 115.1042}
+  m_AnchoredPosition: {x: -10.178711, y: 115.10419}
   m_SizeDelta: {x: -679.42773, y: -407.34912}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1278313861
