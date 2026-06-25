@@ -14,6 +14,10 @@ public class SettingsMenuManager : MonoBehaviour
     [SerializeField] private Toggle autoModeToggle;
     [SerializeField] private Slider autoModeSpeedSlider;
     [SerializeField] private TextMeshProUGUI autoModeSpeedLabel;
+    [SerializeField] private Slider bgmVolumeSlider;
+    [SerializeField] private TextMeshProUGUI bgmVolumeLabel;
+    [SerializeField] private Slider seVolumeSlider;
+    [SerializeField] private TextMeshProUGUI seVolumeLabel;
     [SerializeField] private TMP_FontAsset settingsFont;
     [SerializeField] private TextMeshProUGUI[] extraJapaneseTexts;
 
@@ -30,12 +34,18 @@ public class SettingsMenuManager : MonoBehaviour
     [Header("Sound")]
     [SerializeField] private AudioSource menuAudioSource;
     [SerializeField] private AudioClip menuButtonSound;
+    [SerializeField] private AudioSource[] seAudioSources;
+    [SerializeField, Range(0f, 1f)] private float bgmVolume = 1f;
+    [SerializeField, Range(0f, 1f)] private float seVolume = 1f;
 
     private const string AutoOnText = "\u81ea\u52d5\u8aad\u307f\u4e0a\u3052\uff1a\u30aa\u30f3";
     private const string AutoOffText = "\u81ea\u52d5\u8aad\u307f\u4e0a\u3052\uff1a\u30aa\u30d5";
     private const string AutoSpeedPrefix = "\u8aad\u307f\u4e0a\u3052\u9593\u9694\uff1a";
+    private const string BgmVolumePrefix = "BGM\u97f3\u91cf\uff1a";
+    private const string SeVolumePrefix = "SE\u97f3\u91cf\uff1a";
     private const string NotSetText = "\u672a\u8a2d\u5b9a";
     private const string SecondsText = "\u79d2";
+    private const string PercentText = "%";
 
     public static bool IsAnySettingsOpen { get; private set; }
 
@@ -58,8 +68,11 @@ public class SettingsMenuManager : MonoBehaviour
 
         ApplySettingsFont();
         SetupAutoModeSpeedSlider();
+        SetupVolumeSliders();
+        ApplyVolumeSettings();
         RefreshAutoModeView();
         RefreshAutoModeSpeedView();
+        RefreshVolumeView();
     }
 
     private void OnDestroy()
@@ -82,6 +95,7 @@ public class SettingsMenuManager : MonoBehaviour
         ApplySettingsFont();
         RefreshAutoModeView();
         RefreshAutoModeSpeedView();
+        RefreshVolumeView();
         PlayMenuButtonSound();
     }
 
@@ -142,6 +156,25 @@ public class SettingsMenuManager : MonoBehaviour
         float interval = Mathf.Lerp(maxAutoModeInterval, minAutoModeInterval, value);
         storyManager.SetAutoModeInterval(interval);
         RefreshAutoModeSpeedView();
+    }
+
+    public void SetBgmVolume(float value)
+    {
+        bgmVolume = Mathf.Clamp01(value);
+
+        if (storyManager != null)
+        {
+            storyManager.SetBgmVolume(bgmVolume);
+        }
+
+        RefreshVolumeView();
+    }
+
+    public void SetSeVolume(float value)
+    {
+        seVolume = Mathf.Clamp01(value);
+        ApplySeVolume();
+        RefreshVolumeView();
     }
 
     public void ReturnToTitle()
@@ -207,6 +240,27 @@ public class SettingsMenuManager : MonoBehaviour
         autoModeSpeedSlider.SetValueWithoutNotify(sliderValue);
     }
 
+    private void SetupVolumeSliders()
+    {
+        if (bgmVolumeSlider != null)
+        {
+            bgmVolumeSlider.minValue = 0f;
+            bgmVolumeSlider.maxValue = 1f;
+            bgmVolumeSlider.onValueChanged.RemoveListener(SetBgmVolume);
+            bgmVolumeSlider.onValueChanged.AddListener(SetBgmVolume);
+            bgmVolumeSlider.SetValueWithoutNotify(bgmVolume);
+        }
+
+        if (seVolumeSlider != null)
+        {
+            seVolumeSlider.minValue = 0f;
+            seVolumeSlider.maxValue = 1f;
+            seVolumeSlider.onValueChanged.RemoveListener(SetSeVolume);
+            seVolumeSlider.onValueChanged.AddListener(SetSeVolume);
+            seVolumeSlider.SetValueWithoutNotify(seVolume);
+        }
+    }
+
     private void RefreshAutoModeSpeedView()
     {
         if (storyManager == null)
@@ -232,6 +286,60 @@ public class SettingsMenuManager : MonoBehaviour
         }
     }
 
+    private void ApplyVolumeSettings()
+    {
+        if (storyManager != null)
+        {
+            storyManager.SetBgmVolume(bgmVolume);
+        }
+
+        ApplySeVolume();
+    }
+
+    private void ApplySeVolume()
+    {
+        if (menuAudioSource != null)
+        {
+            menuAudioSource.volume = seVolume;
+        }
+
+        if (seAudioSources == null)
+        {
+            return;
+        }
+
+        foreach (AudioSource audioSource in seAudioSources)
+        {
+            if (audioSource != null)
+            {
+                audioSource.volume = seVolume;
+            }
+        }
+    }
+
+    private void RefreshVolumeView()
+    {
+        if (bgmVolumeSlider != null)
+        {
+            bgmVolumeSlider.SetValueWithoutNotify(bgmVolume);
+        }
+
+        if (seVolumeSlider != null)
+        {
+            seVolumeSlider.SetValueWithoutNotify(seVolume);
+        }
+
+        if (bgmVolumeLabel != null)
+        {
+            bgmVolumeLabel.text = BgmVolumePrefix + Mathf.RoundToInt(bgmVolume * 100f) + PercentText;
+        }
+
+        if (seVolumeLabel != null)
+        {
+            seVolumeLabel.text = SeVolumePrefix + Mathf.RoundToInt(seVolume * 100f) + PercentText;
+        }
+    }
+
     private void ApplySettingsFont()
     {
         if (settingsFont == null)
@@ -241,6 +349,8 @@ public class SettingsMenuManager : MonoBehaviour
 
         ApplyFont(autoModeLabel);
         ApplyFont(autoModeSpeedLabel);
+        ApplyFont(bgmVolumeLabel);
+        ApplyFont(seVolumeLabel);
 
         if (extraJapaneseTexts == null)
         {

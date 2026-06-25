@@ -47,6 +47,7 @@ public class StoryManager2 : MonoBehaviour
     [Header("BGM")]
     [SerializeField] private AudioSource bgmAudioSource;
     [SerializeField] private float bgmFadeDuration = 0.5f;
+    [SerializeField, Range(0f, 1f)] private float bgmVolume = 1f;
 
     [Header("Typewriter")]
     [SerializeField] private float typewriterSpeed = 0.05f;
@@ -69,6 +70,7 @@ public class StoryManager2 : MonoBehaviour
     public int textIndex { get; private set; }
     public bool IsAutoMode => isAutoMode;
     public float AutoModeInterval => autoModeInterval;
+    public float BgmVolume => bgmVolume;
 
   
 
@@ -240,6 +242,16 @@ public class StoryManager2 : MonoBehaviour
     {
         autoModeInterval = Mathf.Max(0.1f, interval);
         autoModeTimer = 0f;
+    }
+
+    public void SetBgmVolume(float volume)
+    {
+        bgmVolume = Mathf.Clamp01(volume);
+
+        if (bgmAudioSource != null && bgmFadeCoroutine == null)
+        {
+            bgmAudioSource.volume = bgmVolume;
+        }
     }
 
     private void UpdateAutoMode()
@@ -457,7 +469,7 @@ public class StoryManager2 : MonoBehaviour
 
     private IEnumerator ChangeBgmWithFade(AudioSource source, AudioClip bgmClip)
     {
-        float baseVolume = Mathf.Max(0.0001f, source.volume);
+        float baseVolume = bgmVolume;
 
         if (source.isPlaying && bgmFadeDuration > 0f)
         {
@@ -484,7 +496,7 @@ public class StoryManager2 : MonoBehaviour
 
     private IEnumerator StopBgmWithFade(AudioSource source)
     {
-        float baseVolume = source.volume;
+        float baseVolume = bgmVolume;
 
         if (source.isPlaying && bgmFadeDuration > 0f)
         {
