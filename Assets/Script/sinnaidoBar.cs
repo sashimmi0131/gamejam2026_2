@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class sinnaidoBarScript : SceneBase
+public class sinnaidoBarScript : MonoBehaviour
 {
     
     public Image barImage;
@@ -26,7 +26,7 @@ public class sinnaidoBarScript : SceneBase
     public void ChangeSinnaido(int value)
     {
         sinnaido += value;
-        sinnaido = Mathf.Clamp(sinnaido, 0, 3);
+        sinnaido = Mathf.Clamp(sinnaido, -1, 3);
         UpdateBar();
     }
 

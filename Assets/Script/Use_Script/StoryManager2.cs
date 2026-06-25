@@ -105,8 +105,10 @@ public class StoryManager2 : MonoBehaviour
         if (background.sprite != null && background.sprite.name == "loading3_0"
             || background.sprite.name == "end2_0"
             || background.sprite.name == "end3_0"
-            || background.sprite.name == "ending_suchiru_sakuranasi_v001_0"
-            && textIndex > 7)   //指定の背景の時にUIを非表示にします
+            || background.sprite.name == "ending_suchiru_sakuranasi_v002_0"
+            && textIndex > 7
+            || background.sprite.name == "ending_suchiru_sinnyuu_v001_0"
+            && textIndex > 9)   //指定の背景の時にUIを非表示にします
         {
             UI.gameObject.SetActive(false);
             UI2.gameObject.SetActive(false);
