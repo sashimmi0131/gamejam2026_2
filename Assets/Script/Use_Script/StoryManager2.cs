@@ -94,7 +94,7 @@ public class StoryManager2 : MonoBehaviour
         }
        
 
-        if (background.sprite != null && background.sprite.name == "loading2_0"
+        if (background.sprite != null && background.sprite.name == "loading3_0"
             || background.sprite.name == "end2_0"
             || background.sprite.name == "end3_0"
             || background.sprite.name == "ending_suchiru_sakuranasi_v001_0"

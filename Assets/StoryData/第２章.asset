@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: "\u7B2C\uFF12\u7AE0"
   m_EditorClassIdentifier: 
   stories:
-  - Background: {fileID: 229491671524072200, guid: ae3b8f7a417e77947b7a8097ff4a04b8, type: 3}
+  - Background: {fileID: 231273125674220054, guid: a0bde408619a0814b8b5da9a47f97c3e, type: 3}
     CharacterImage: {fileID: -1404659835321373372, guid: 550f2097b2df98443a485e753ab2882b, type: 3}
     StoryText: 
     CharacterName: "\u4E3B\u4EBA\u516C"
@@ -104,7 +104,7 @@ MonoBehaviour:
     choiceText2: 
     targetIndex2: 0
   - Background: {fileID: 1646605720068754351, guid: 628736a19c7ac4c4599d7bda9371f468, type: 3}
-    CharacterImage: {fileID: 7351175177894637936, guid: ae6a9bd2395a7ef4f820724146267275, type: 3}
+    CharacterImage: {fileID: -1055039539844087650, guid: 161f0e00f920bc140ac27009ed21e1e0, type: 3}
     StoryText: "\u300C\u3046\u308F\u3001\u307E\u305F\u5DEE\u3057\u5165\u308C\uFF1F\u300D"
     CharacterName: "\u76F8\u6CA2\u6052\u4E00"
     isChoice: 0
