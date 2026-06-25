@@ -46,8 +46,16 @@ public class SettingsMenuManager : MonoBehaviour
     private const string NotSetText = "\u672a\u8a2d\u5b9a";
     private const string SecondsText = "\u79d2";
     private const string PercentText = "%";
+    private const string BgmVolumeKey = "Settings.BgmVolume";
+    private const string SeVolumeKey = "Settings.SeVolume";
+    private const string AutoModeKey = "Settings.AutoMode";
+    private const string AutoModeIntervalKey = "Settings.AutoModeInterval";
 
     public static bool IsAnySettingsOpen { get; private set; }
+    public static float CurrentBgmVolume { get; private set; } = 1f;
+    public static float CurrentSeVolume { get; private set; } = 1f;
+    public static bool CurrentAutoMode { get; private set; }
+    public static float CurrentAutoModeInterval { get; private set; } = 2f;
 
     public bool IsOpen
     {
@@ -60,6 +68,8 @@ public class SettingsMenuManager : MonoBehaviour
     private void Awake()
     {
         IsAnySettingsOpen = false;
+        LoadSavedSettings();
+        ApplySavedSettingsToScene();
 
         if (settingsPanel != null)
         {
@@ -73,6 +83,21 @@ public class SettingsMenuManager : MonoBehaviour
         RefreshAutoModeView();
         RefreshAutoModeSpeedView();
         RefreshVolumeView();
+    }
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    private static void LoadSettingsBeforeScene()
+    {
+        IsAnySettingsOpen = false;
+        LoadSavedSettings();
+    }
+
+    public static void LoadSavedSettings()
+    {
+        CurrentBgmVolume = Mathf.Clamp01(PlayerPrefs.GetFloat(BgmVolumeKey, 1f));
+        CurrentSeVolume = Mathf.Clamp01(PlayerPrefs.GetFloat(SeVolumeKey, 1f));
+        CurrentAutoMode = PlayerPrefs.GetInt(AutoModeKey, 0) == 1;
+        CurrentAutoModeInterval = Mathf.Max(0.1f, PlayerPrefs.GetFloat(AutoModeIntervalKey, 2f));
     }
 
     private void OnDestroy()
@@ -124,43 +149,46 @@ public class SettingsMenuManager : MonoBehaviour
 
     public void ToggleAutoMode()
     {
-        if (storyManager == null)
-        {
-            return;
-        }
-
-        storyManager.SetAutoMode(!storyManager.IsAutoMode);
-        RefreshAutoModeView();
-        PlayMenuButtonSound();
+        bool isAutoMode = storyManager != null ? storyManager.IsAutoMode : CurrentAutoMode;
+        SetAutoMode(!isAutoMode);
     }
 
     public void SetAutoMode(bool isOn)
     {
-        if (storyManager == null)
+        CurrentAutoMode = isOn;
+        PlayerPrefs.SetInt(AutoModeKey, CurrentAutoMode ? 1 : 0);
+        PlayerPrefs.Save();
+
+        if (storyManager != null)
         {
-            return;
+            storyManager.SetAutoMode(CurrentAutoMode);
         }
 
-        storyManager.SetAutoMode(isOn);
         RefreshAutoModeView();
         PlayMenuButtonSound();
     }
 
     public void SetAutoModeSpeed(float value)
     {
-        if (storyManager == null)
+        float interval = Mathf.Lerp(maxAutoModeInterval, minAutoModeInterval, value);
+        CurrentAutoModeInterval = Mathf.Max(0.1f, interval);
+        PlayerPrefs.SetFloat(AutoModeIntervalKey, CurrentAutoModeInterval);
+        PlayerPrefs.Save();
+
+        if (storyManager != null)
         {
-            return;
+            storyManager.SetAutoModeInterval(CurrentAutoModeInterval);
         }
 
-        float interval = Mathf.Lerp(maxAutoModeInterval, minAutoModeInterval, value);
-        storyManager.SetAutoModeInterval(interval);
         RefreshAutoModeSpeedView();
     }
 
     public void SetBgmVolume(float value)
     {
         bgmVolume = Mathf.Clamp01(value);
+        CurrentBgmVolume = bgmVolume;
+        PlayerPrefs.SetFloat(BgmVolumeKey, CurrentBgmVolume);
+        PlayerPrefs.Save();
 
         if (storyManager != null)
         {
@@ -173,6 +201,10 @@ public class SettingsMenuManager : MonoBehaviour
     public void SetSeVolume(float value)
     {
         seVolume = Mathf.Clamp01(value);
+        CurrentSeVolume = seVolume;
+        PlayerPrefs.SetFloat(SeVolumeKey, CurrentSeVolume);
+        PlayerPrefs.Save();
+
         ApplySeVolume();
         RefreshVolumeView();
     }
@@ -205,7 +237,7 @@ public class SettingsMenuManager : MonoBehaviour
 
     private void RefreshAutoModeView()
     {
-        bool isAutoMode = storyManager != null && storyManager.IsAutoMode;
+        bool isAutoMode = storyManager != null ? storyManager.IsAutoMode : CurrentAutoMode;
 
         if (autoModeLabel != null)
         {
@@ -230,12 +262,8 @@ public class SettingsMenuManager : MonoBehaviour
         autoModeSpeedSlider.onValueChanged.RemoveListener(SetAutoModeSpeed);
         autoModeSpeedSlider.onValueChanged.AddListener(SetAutoModeSpeed);
 
-        if (storyManager == null)
-        {
-            return;
-        }
-
-        float interval = Mathf.Clamp(storyManager.AutoModeInterval, minAutoModeInterval, maxAutoModeInterval);
+        float interval = storyManager != null ? storyManager.AutoModeInterval : CurrentAutoModeInterval;
+        interval = Mathf.Clamp(interval, minAutoModeInterval, maxAutoModeInterval);
         float sliderValue = Mathf.InverseLerp(maxAutoModeInterval, minAutoModeInterval, interval);
         autoModeSpeedSlider.SetValueWithoutNotify(sliderValue);
     }
@@ -248,7 +276,7 @@ public class SettingsMenuManager : MonoBehaviour
             bgmVolumeSlider.maxValue = 1f;
             bgmVolumeSlider.onValueChanged.RemoveListener(SetBgmVolume);
             bgmVolumeSlider.onValueChanged.AddListener(SetBgmVolume);
-            bgmVolumeSlider.SetValueWithoutNotify(bgmVolume);
+            bgmVolumeSlider.SetValueWithoutNotify(CurrentBgmVolume);
         }
 
         if (seVolumeSlider != null)
@@ -257,32 +285,24 @@ public class SettingsMenuManager : MonoBehaviour
             seVolumeSlider.maxValue = 1f;
             seVolumeSlider.onValueChanged.RemoveListener(SetSeVolume);
             seVolumeSlider.onValueChanged.AddListener(SetSeVolume);
-            seVolumeSlider.SetValueWithoutNotify(seVolume);
+            seVolumeSlider.SetValueWithoutNotify(CurrentSeVolume);
         }
     }
 
     private void RefreshAutoModeSpeedView()
     {
-        if (storyManager == null)
-        {
-            if (autoModeSpeedLabel != null)
-            {
-                autoModeSpeedLabel.text = AutoSpeedPrefix + NotSetText;
-            }
-
-            return;
-        }
+        float interval = storyManager != null ? storyManager.AutoModeInterval : CurrentAutoModeInterval;
+        interval = Mathf.Clamp(interval, minAutoModeInterval, maxAutoModeInterval);
 
         if (autoModeSpeedSlider != null)
         {
-            float interval = Mathf.Clamp(storyManager.AutoModeInterval, minAutoModeInterval, maxAutoModeInterval);
             float sliderValue = Mathf.InverseLerp(maxAutoModeInterval, minAutoModeInterval, interval);
             autoModeSpeedSlider.SetValueWithoutNotify(sliderValue);
         }
 
         if (autoModeSpeedLabel != null)
         {
-            autoModeSpeedLabel.text = AutoSpeedPrefix + storyManager.AutoModeInterval.ToString("0.0") + SecondsText;
+            autoModeSpeedLabel.text = AutoSpeedPrefix + interval.ToString("0.0") + SecondsText;
         }
     }
 
@@ -290,10 +310,25 @@ public class SettingsMenuManager : MonoBehaviour
     {
         if (storyManager != null)
         {
-            storyManager.SetBgmVolume(bgmVolume);
+            storyManager.SetBgmVolume(CurrentBgmVolume);
+            storyManager.SetSeVolume(CurrentSeVolume);
         }
 
         ApplySeVolume();
+    }
+
+    private void ApplySavedSettingsToScene()
+    {
+        bgmVolume = CurrentBgmVolume;
+        seVolume = CurrentSeVolume;
+
+        if (storyManager != null)
+        {
+            storyManager.SetAutoMode(CurrentAutoMode);
+            storyManager.SetAutoModeInterval(CurrentAutoModeInterval);
+            storyManager.SetBgmVolume(CurrentBgmVolume);
+            storyManager.SetSeVolume(CurrentSeVolume);
+        }
     }
 
     private void ApplySeVolume()

@@ -76,6 +76,7 @@ public class StoryManager2 : MonoBehaviour
 
     private void Start()
     {
+        ApplySavedSettings();
         ApplyBacklogFont();
 
         if (backlogManager != null)
@@ -254,6 +255,35 @@ public class StoryManager2 : MonoBehaviour
         {
             bgmAudioSource.volume = bgmVolume;
         }
+    }
+
+    public void SetSeVolume(float volume)
+    {
+        float seVolume = Mathf.Clamp01(volume);
+
+        if (choiceAudioSource != null)
+        {
+            choiceAudioSource.volume = seVolume;
+        }
+
+        if (advanceConversationAudioSource != null)
+        {
+            advanceConversationAudioSource.volume = seVolume;
+        }
+
+        if (typewriterAudioSource != null)
+        {
+            typewriterAudioSource.volume = seVolume;
+        }
+    }
+
+    private void ApplySavedSettings()
+    {
+        SettingsMenuManager.LoadSavedSettings();
+        SetAutoMode(SettingsMenuManager.CurrentAutoMode);
+        SetAutoModeInterval(SettingsMenuManager.CurrentAutoModeInterval);
+        SetBgmVolume(SettingsMenuManager.CurrentBgmVolume);
+        SetSeVolume(SettingsMenuManager.CurrentSeVolume);
     }
 
     private void UpdateAutoMode()

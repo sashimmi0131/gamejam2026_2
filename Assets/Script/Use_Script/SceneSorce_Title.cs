@@ -27,6 +27,7 @@ public class SceneSorce_Title : SceneBase
 
     private void Awake()
     {
+        ApplySavedVolumes();
         SetFadeAlpha(0f);
     }
 
@@ -75,6 +76,8 @@ public class SceneSorce_Title : SceneBase
 
     private void PlayTitleBgm()
     {
+        ApplySavedVolumes();
+
         if (titleBgm == null)
         {
             return;
@@ -111,7 +114,24 @@ public class SceneSorce_Title : SceneBase
             return;
         }
 
+        audioSource.volume = SettingsMenuManager.CurrentSeVolume;
         audioSource.PlayOneShot(startSound);
+    }
+
+    private void ApplySavedVolumes()
+    {
+        SettingsMenuManager.LoadSavedSettings();
+        bgmVolume = SettingsMenuManager.CurrentBgmVolume;
+
+        if (audioSource != null)
+        {
+            audioSource.volume = SettingsMenuManager.CurrentSeVolume;
+        }
+
+        if (bgmAudioSource != null)
+        {
+            bgmAudioSource.volume = bgmVolume;
+        }
     }
 
     private IEnumerator FadeOut()
