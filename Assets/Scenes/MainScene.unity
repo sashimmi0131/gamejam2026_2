@@ -1692,6 +1692,8 @@ MonoBehaviour:
   advanceConversationSound: {fileID: 8300000, guid: cde7cc30aa379e3429dce81f73b00c23, type: 3}
   isAutoMode: 0
   autoModeInterval: 2
+  bgmAudioSource: {fileID: 0}
+  bgmFadeDuration: 0.5
   typewriterSpeed: 0.05
   typewriterAudioSource: {fileID: 406536462}
   typewriterSound: {fileID: 8300000, guid: c273e27dbaafde74c956114908414437, type: 3}
@@ -3300,7 +3302,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -10.178772, y: 115.10419}
+  m_AnchoredPosition: {x: -10.178711, y: 115.10425}
   m_SizeDelta: {x: -679.4277, y: -407.3491}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1371915600

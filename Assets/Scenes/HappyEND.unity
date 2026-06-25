@@ -2890,6 +2890,8 @@ MonoBehaviour:
   advanceConversationSound: {fileID: 8300000, guid: cde7cc30aa379e3429dce81f73b00c23, type: 3}
   isAutoMode: 0
   autoModeInterval: 2
+  bgmAudioSource: {fileID: 0}
+  bgmFadeDuration: 0.5
   typewriterSpeed: 0.05
   typewriterAudioSource: {fileID: 1813836060}
   typewriterSound: {fileID: 8300000, guid: c273e27dbaafde74c956114908414437, type: 3}
@@ -4556,7 +4558,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &2080047852
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4953,23 +4955,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4919222737381444, guid: 9dca676f2ff988a45a505d56f3bd0bb6, type: 3}
       propertyPath: m_LocalScale.x
-      value: 1
+      value: 1.4923707
       objectReference: {fileID: 0}
     - target: {fileID: 4919222737381444, guid: 9dca676f2ff988a45a505d56f3bd0bb6, type: 3}
       propertyPath: m_LocalScale.y
-      value: 1
+      value: 1.4923707
       objectReference: {fileID: 0}
     - target: {fileID: 4919222737381444, guid: 9dca676f2ff988a45a505d56f3bd0bb6, type: 3}
       propertyPath: m_LocalScale.z
-      value: 1
+      value: 1.4923707
       objectReference: {fileID: 0}
     - target: {fileID: 4919222737381444, guid: 9dca676f2ff988a45a505d56f3bd0bb6, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -954.6
+      value: -963.13
       objectReference: {fileID: 0}
     - target: {fileID: 4919222737381444, guid: 9dca676f2ff988a45a505d56f3bd0bb6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -532.5
+      value: -536.71
       objectReference: {fileID: 0}
     - target: {fileID: 4919222737381444, guid: 9dca676f2ff988a45a505d56f3bd0bb6, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4977,7 +4979,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4919222737381444, guid: 9dca676f2ff988a45a505d56f3bd0bb6, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.9971126
+      value: 0.38914463
       objectReference: {fileID: 0}
     - target: {fileID: 4919222737381444, guid: 9dca676f2ff988a45a505d56f3bd0bb6, type: 3}
       propertyPath: m_LocalRotation.x
@@ -4989,11 +4991,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4919222737381444, guid: 9dca676f2ff988a45a505d56f3bd0bb6, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.07593778
+      value: 0.92117673
       objectReference: {fileID: 0}
     - target: {fileID: 4919222737381444, guid: 9dca676f2ff988a45a505d56f3bd0bb6, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 8.71
+      value: 134.197
       objectReference: {fileID: 0}
     - target: {fileID: 4919222737381444, guid: 9dca676f2ff988a45a505d56f3bd0bb6, type: 3}
       propertyPath: m_ConstrainProportionsScale
@@ -5009,7 +5011,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 198999705567538108, guid: 9dca676f2ff988a45a505d56f3bd0bb6, type: 3}
       propertyPath: lengthInSec
-      value: 100
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 198999705567538108, guid: 9dca676f2ff988a45a505d56f3bd0bb6, type: 3}
       propertyPath: scalingMode
@@ -5017,7 +5019,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 198999705567538108, guid: 9dca676f2ff988a45a505d56f3bd0bb6, type: 3}
       propertyPath: autoRandomSeed
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 198999705567538108, guid: 9dca676f2ff988a45a505d56f3bd0bb6, type: 3}
       propertyPath: moveWithTransform
@@ -5045,15 +5047,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 198999705567538108, guid: 9dca676f2ff988a45a505d56f3bd0bb6, type: 3}
       propertyPath: InitialModule.maxNumParticles
-      value: 100
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 198999705567538108, guid: 9dca676f2ff988a45a505d56f3bd0bb6, type: 3}
       propertyPath: InitialModule.startSize.scalar
-      value: 1
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 198999705567538108, guid: 9dca676f2ff988a45a505d56f3bd0bb6, type: 3}
       propertyPath: InitialModule.startSpeed.scalar
-      value: 5
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 198999705567538108, guid: 9dca676f2ff988a45a505d56f3bd0bb6, type: 3}
       propertyPath: ShapeModule.randomDirectionAmount
