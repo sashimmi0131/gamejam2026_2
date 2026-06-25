@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a435513dbd9b8f43a687006072831e2, type: 3}
   m_Name: "\u30D7\u30ED\u30ED\u30FC\u30B0"
   m_EditorClassIdentifier: 
+  bgm: {fileID: 8300000, guid: 42333ada39e239340b90ad1090222b4f, type: 3}
+  stopBgm: 0
   stories:
   - Background: {fileID: 5274173733187224425, guid: 7c6b5f8056ac86443b620ac79ab83811, type: 3}
     CharacterImage: {fileID: -1404659835321373372, guid: 550f2097b2df98443a485e753ab2882b, type: 3}
