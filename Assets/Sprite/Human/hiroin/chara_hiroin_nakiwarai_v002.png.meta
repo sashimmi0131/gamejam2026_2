@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 625709db3e57dfd4fa9c0a1ecb5f2f43
+guid: de40731a78808b54597c5eaf4d312da6
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 7473544545606748275
-    second: chara_hiroin_nakiwarai_v001_0
+      213: -3102456841930672121
+    second: chara_hiroin_nakiwarai_v002_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -100,7 +100,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: chara_hiroin_nakiwarai_v001_0
+      name: chara_hiroin_nakiwarai_v002_0
       rect:
         serializedVersion: 2
         x: 0
@@ -115,8 +115,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 378c2fdea2d57b760800000000000000
-      internalID: 7473544545606748275
+      spriteID: 708fdb590fbd1f4d0800000000000000
+      internalID: -3102456841930672121
       vertices: []
       indices: 
       edges: []
@@ -125,7 +125,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: e5d3bfb41625e8347b82807c62c365d9
+    spriteID: bc15a7f7a3c7e5f4e8442b90b0418b20
     internalID: 0
     vertices: []
     indices: 
@@ -135,7 +135,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      chara_hiroin_nakiwarai_v001_0: 7473544545606748275
+      chara_hiroin_nakiwarai_v002_0: -3102456841930672121
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

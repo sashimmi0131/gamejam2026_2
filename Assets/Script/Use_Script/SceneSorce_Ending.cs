@@ -17,6 +17,7 @@ public class SceneSorce_Ending : SceneBase
         {
             returnTitleButton.gameObject.SetActive(false);
 
+            sinnaidoBarScript.sinnaido = 0;
             returnTitleButton.onClick.AddListener(() => {
                 SceneManager.LoadScene("Title");
             });

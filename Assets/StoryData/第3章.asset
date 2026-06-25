@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a435513dbd9b8f43a687006072831e2, type: 3}
   m_Name: "\u7B2C3\u7AE0"
   m_EditorClassIdentifier: 
+  bgm: {fileID: 0}
+  stopBgm: 0
   stories:
   - Background: {fileID: 231273125674220054, guid: a0bde408619a0814b8b5da9a47f97c3e, type: 3}
     CharacterImage: {fileID: -1404659835321373372, guid: 550f2097b2df98443a485e753ab2882b, type: 3}
@@ -232,7 +234,7 @@ MonoBehaviour:
   - Background: {fileID: 9051815763795392716, guid: 95829bc1ad01a8f498e8430e5cad7310, type: 3}
     CharacterImage: {fileID: -1404659835321373372, guid: 550f2097b2df98443a485e753ab2882b, type: 3}
     StoryText: 
-    CharacterName: "\u76F8\u6CA2\u6052\u4E00"
+    CharacterName: 
     isChoice: 1
     choiceText1: "\u308F\u304B\u3089\u306A\u3044"
     targetIndex1: 8

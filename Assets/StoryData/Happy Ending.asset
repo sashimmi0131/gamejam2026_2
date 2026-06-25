@@ -26,8 +26,17 @@ MonoBehaviour:
     targetIndex2: 0
   - Background: {fileID: 1646605720068754351, guid: 628736a19c7ac4c4599d7bda9371f468, type: 3}
     CharacterImage: {fileID: -9189474204515730777, guid: b0358b01a369703478f82c8a4ddb112d, type: 3}
+    StoryText: "\u6821\u820E\u88CF\u306B\u3064\u304F\u3068\u7F8E\u6708\u304C\u3044\u305F\u3002"
+    CharacterName: "\u4E3B\u4EBA\u516C"
+    isChoice: 0
+    choiceText1: 
+    targetIndex1: 0
+    choiceText2: 
+    targetIndex2: 0
+  - Background: {fileID: 8342118328294247256, guid: 49337e448a4e31a40981c23d37d93ec7, type: 3}
+    CharacterImage: {fileID: -1404659835321373372, guid: 550f2097b2df98443a485e753ab2882b, type: 3}
     StoryText: "\u300C\u79C1\u3001\u5148\u8F29\u306E\u3053\u3068\u304C\u597D\u304D\u3067\u3059\u300D"
-    CharacterName: 
+    CharacterName: "\u671D\u6BD4\u5948\u7F8E\u6708"
     isChoice: 0
     choiceText1: 
     targetIndex1: 0
@@ -45,14 +54,14 @@ MonoBehaviour:
   - Background: {fileID: 1646605720068754351, guid: 628736a19c7ac4c4599d7bda9371f468, type: 3}
     CharacterImage: {fileID: -1404659835321373372, guid: 550f2097b2df98443a485e753ab2882b, type: 3}
     StoryText: "\u300C\u4FFA\u3082\u597D\u304D\u3060\u300D"
-    CharacterName: 
+    CharacterName: "\u4E3B\u4EBA\u516C"
     isChoice: 0
     choiceText1: 
     targetIndex1: 0
     choiceText2: 
     targetIndex2: 0
   - Background: {fileID: 1646605720068754351, guid: 628736a19c7ac4c4599d7bda9371f468, type: 3}
-    CharacterImage: {fileID: 7473544545606748275, guid: 625709db3e57dfd4fa9c0a1ecb5f2f43, type: 3}
+    CharacterImage: {fileID: -3102456841930672121, guid: de40731a78808b54597c5eaf4d312da6, type: 3}
     StoryText: "\u7F8E\u6708\u306E\u76EE\u304B\u3089\u6D99\u304C\u3053\u307C\u308C\u308B\u3002"
     CharacterName: "\u4E3B\u4EBA\u516C"
     isChoice: 0
@@ -61,7 +70,7 @@ MonoBehaviour:
     choiceText2: 
     targetIndex2: 0
   - Background: {fileID: 1646605720068754351, guid: 628736a19c7ac4c4599d7bda9371f468, type: 3}
-    CharacterImage: {fileID: 7473544545606748275, guid: 625709db3e57dfd4fa9c0a1ecb5f2f43, type: 3}
+    CharacterImage: {fileID: -3102456841930672121, guid: de40731a78808b54597c5eaf4d312da6, type: 3}
     StoryText: "\u300C\u3088\u304B\u3063\u305F.......\u300D"
     CharacterName: "\u671D\u6BD4\u5948\u7F8E\u6708"
     isChoice: 0

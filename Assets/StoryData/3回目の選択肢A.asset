@@ -12,11 +12,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a435513dbd9b8f43a687006072831e2, type: 3}
   m_Name: "3\u56DE\u76EE\u306E\u9078\u629E\u80A2A"
   m_EditorClassIdentifier: 
+  bgm: {fileID: 0}
+  stopBgm: 0
   stories:
   - Background: {fileID: 9051815763795392716, guid: 95829bc1ad01a8f498e8430e5cad7310, type: 3}
     CharacterImage: {fileID: -1404659835321373372, guid: 550f2097b2df98443a485e753ab2882b, type: 3}
     StoryText: "\u300C\u308F\u304B\u3089\u306A\u3044...\u300D"
-    CharacterName: 
+    CharacterName: "\u4E3B\u4EBA\u516C"
     isChoice: 0
     choiceText1: 
     targetIndex1: 0
