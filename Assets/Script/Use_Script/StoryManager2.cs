@@ -44,6 +44,10 @@ public class StoryManager2 : MonoBehaviour
     [SerializeField] private bool isAutoMode;
     [SerializeField] private float autoModeInterval = 2f;
 
+    [Header("BGM")]
+    [SerializeField] private AudioSource bgmAudioSource;
+    [SerializeField] private float bgmFadeDuration = 0.5f;
+
     [Header("Typewriter")]
     [SerializeField] private float typewriterSpeed = 0.05f;
     [SerializeField] private AudioSource typewriterAudioSource;
@@ -58,6 +62,8 @@ public class StoryManager2 : MonoBehaviour
     private int loggedTextIndex = -1;
     private bool shouldPlayAdvanceConversationSound;
     private float autoModeTimer;
+    private AudioClip currentBgmClip;
+    private Coroutine bgmFadeCoroutine;
    
     public int storyIndex { get; private set; }
     public int textIndex { get; private set; }
@@ -301,6 +307,7 @@ public class StoryManager2 : MonoBehaviour
         }
 
         currentStoryElement = storyDatas[_storyIndex].stories[_textIndex];
+        ApplyBgmForStoryData(_storyIndex);
 
         if (currentStoryElement.CharacterImage == null)
         {
@@ -367,6 +374,143 @@ public class StoryManager2 : MonoBehaviour
 
         currentStoryText = text ?? "";
         typewriterCoroutine = StartCoroutine(TypewriterText());
+    }
+
+    private void ApplyBgmForStoryData(int storyDataIndex)
+    {
+        if (storyDataIndex < 0 || storyDataIndex >= storyDatas.Length)
+        {
+            return;
+        }
+
+        StoryData storyData = storyDatas[storyDataIndex];
+
+        if (storyData == null)
+        {
+            return;
+        }
+
+        if (storyData.stopBgm)
+        {
+            StopBgm();
+            return;
+        }
+
+        if (storyData.bgm == null)
+        {
+            return;
+        }
+
+        PlayBgm(storyData.bgm);
+    }
+
+    private void PlayBgm(AudioClip bgmClip)
+    {
+        if (bgmClip == null || currentBgmClip == bgmClip)
+        {
+            return;
+        }
+
+        AudioSource source = GetBgmAudioSource();
+
+        if (source == null)
+        {
+            return;
+        }
+
+        if (bgmFadeCoroutine != null)
+        {
+            StopCoroutine(bgmFadeCoroutine);
+        }
+
+        bgmFadeCoroutine = StartCoroutine(ChangeBgmWithFade(source, bgmClip));
+    }
+
+    private void StopBgm()
+    {
+        AudioSource source = GetBgmAudioSource();
+
+        if (source == null || currentBgmClip == null)
+        {
+            return;
+        }
+
+        if (bgmFadeCoroutine != null)
+        {
+            StopCoroutine(bgmFadeCoroutine);
+        }
+
+        bgmFadeCoroutine = StartCoroutine(StopBgmWithFade(source));
+    }
+
+    private AudioSource GetBgmAudioSource()
+    {
+        if (bgmAudioSource == null)
+        {
+            bgmAudioSource = gameObject.AddComponent<AudioSource>();
+        }
+
+        bgmAudioSource.loop = true;
+        bgmAudioSource.playOnAwake = false;
+        return bgmAudioSource;
+    }
+
+    private IEnumerator ChangeBgmWithFade(AudioSource source, AudioClip bgmClip)
+    {
+        float baseVolume = Mathf.Max(0.0001f, source.volume);
+
+        if (source.isPlaying && bgmFadeDuration > 0f)
+        {
+            yield return FadeBgmVolume(source, source.volume, 0f);
+        }
+
+        source.clip = bgmClip;
+        source.loop = true;
+        source.volume = bgmFadeDuration > 0f ? 0f : baseVolume;
+        source.Play();
+        currentBgmClip = bgmClip;
+
+        if (bgmFadeDuration > 0f)
+        {
+            yield return FadeBgmVolume(source, 0f, baseVolume);
+        }
+        else
+        {
+            source.volume = baseVolume;
+        }
+
+        bgmFadeCoroutine = null;
+    }
+
+    private IEnumerator StopBgmWithFade(AudioSource source)
+    {
+        float baseVolume = source.volume;
+
+        if (source.isPlaying && bgmFadeDuration > 0f)
+        {
+            yield return FadeBgmVolume(source, source.volume, 0f);
+        }
+
+        source.Stop();
+        source.clip = null;
+        source.volume = baseVolume;
+        currentBgmClip = null;
+        bgmFadeCoroutine = null;
+    }
+
+    private IEnumerator FadeBgmVolume(AudioSource source, float from, float to)
+    {
+        float timer = 0f;
+        float duration = Mathf.Max(0.01f, bgmFadeDuration);
+
+        while (timer < duration)
+        {
+            timer += Time.deltaTime;
+            source.volume = Mathf.Lerp(from, to, timer / duration);
+            yield return null;
+        }
+
+        source.volume = to;
     }
 
     private IEnumerator TypewriterText()

@@ -5,6 +5,10 @@ using UnityEngine;
 [CreateAssetMenu(fileName = "New Data", menuName = "StoryData")]
 public class StoryData : ScriptableObject
 {
+    [Header("BGM")]
+    public AudioClip bgm;
+    public bool stopBgm;
+
     public List<Story> stories = new List<Story>();
 }
 [System.Serializable]
