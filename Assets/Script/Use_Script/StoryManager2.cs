@@ -65,14 +65,14 @@ public class StoryManager2 : MonoBehaviour
     private float autoModeTimer;
     private AudioClip currentBgmClip;
     private Coroutine bgmFadeCoroutine;
-   
+
     public int storyIndex { get; private set; }
     public int textIndex { get; private set; }
     public bool IsAutoMode => isAutoMode;
     public float AutoModeInterval => autoModeInterval;
     public float BgmVolume => bgmVolume;
 
-  
+
 
     private void Start()
     {
@@ -94,37 +94,38 @@ public class StoryManager2 : MonoBehaviour
             backlogManager.BeforeBacklogOpen -= AddCurrentStoryToBacklog;
         }
     }
-  
+
     private void Update()
     {
-        if(background.sprite != null && background.sprite.name == "ending_suchiru_sakuranasi_v001_0")
+        if (background.sprite != null && background.sprite.name == "ending_suchiru_sakuranasi_v001_0")
         {
-           Canvas1.SetActive(true);
+            Canvas1.SetActive(true);
         }
-       
 
         if (background.sprite != null && background.sprite.name == "loading3_0"
             || background.sprite.name == "end2_0"
             || background.sprite.name == "end3_0"
             || background.sprite.name == "ending_suchiru_sakuranasi_v002_0"
-            && textIndex > 7
-            || background.sprite.name == "ending_suchiru_sinnyuu_v001_0"
-            && textIndex > 9)   //指定の背景の時にUIを非表示にします
+            && textIndex > 8
+            || background.sprite.name == "ending_suchiru_sinyuu_v001_0"
+            //|| background.sprite.name == "ending_suchiru_sinyuu_v001"
+            )   //指定の背景の時にUIを非表示にします
         {
+            Debug.Log("非表示");
             UI.gameObject.SetActive(false);
             UI2.gameObject.SetActive(false);
             UI3.gameObject.SetActive(false);
             UI4.gameObject.SetActive(false);
-           
+
         }
-        else 
+        else
         {
             UI.gameObject.SetActive(true);
             UI2.gameObject.SetActive(true);
             UI3.gameObject.SetActive(true);
             UI4.gameObject.SetActive(true);
         }
-      
+
 
         if (ShouldReadNext())
         {
@@ -195,7 +196,7 @@ public class StoryManager2 : MonoBehaviour
 
         return false;
     }
-     private void ReadNext()
+    private void ReadNext()
     {
         if (IsSettingsOpen())
         {
@@ -228,7 +229,7 @@ public class StoryManager2 : MonoBehaviour
             ProgressionStory();
         }
     }
-   
+
 
     public void SetAutoMode(bool isOn)
     {

@@ -682,7 +682,7 @@ MonoBehaviour:
   backlogAudioSource: {fileID: 406536462}
   backlogButtonSound: {fileID: 8300000, guid: a575a60de7df21649a28606ad24b327b, type: 3}
   maxLogCount: 50
-  visibleLogCount: 5
+  visibleLogCount: 30
   choicePrefix: '> '
   useTextOutline: 1
   textOutlineColor: {r: 0, g: 0, b: 0, a: 1}
@@ -2129,6 +2129,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eaeab0a9c664d624a9ec8519913790d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  storyManager: {fileID: 0}
   barImage: {fileID: 572464025}
   barSprites:
   - {fileID: -120568443989853620, guid: 06c1b4fc90da41d4c9b3a92595cfd57b, type: 3}

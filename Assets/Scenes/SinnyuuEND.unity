@@ -978,7 +978,7 @@ MonoBehaviour:
   backlogAudioSource: {fileID: 0}
   backlogButtonSound: {fileID: 8300000, guid: a575a60de7df21649a28606ad24b327b, type: 3}
   maxLogCount: 50
-  visibleLogCount: 5
+  visibleLogCount: 30
   choicePrefix: '> '
   useTextOutline: 1
   textOutlineColor: {r: 0, g: 0, b: 0, a: 1}
@@ -4585,7 +4585,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 588, y: -136}
+  m_AnchoredPosition: {x: 588, y: -445}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1686334614
@@ -6060,9 +6060,9 @@ MonoBehaviour:
   characterImage: {fileID: 794920897}
   storyText: {fileID: 1943091041}
   characterName: {fileID: 1885371898}
-  UI: {fileID: 159131718}
-  UI2: {fileID: 2140452911}
-  UI3: {fileID: 511206526}
+  UI: {fileID: 511206526}
+  UI2: {fileID: 159131718}
+  UI3: {fileID: 2140452911}
   UI4: {fileID: 97621259}
   Canvas1: {fileID: 575084779}
   choicePanel: {fileID: 0}
